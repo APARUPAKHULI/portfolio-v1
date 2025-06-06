@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What I Do</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Global Styles */
+      body {
+        font-family: Arial, sans-serif;
+        background: radial-gradient(
+          circle,
+          rgba(238, 174, 202, 1) 0%,
+          rgba(148, 233, 229, 1) 57%
+        );
+        color: white;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      .file_name {
+        margin-bottom: -25px;
+        text-transform: uppercase;
+        color: #f9f2f2;
+        color: red;
+      }
+      /* Section Styling */
+      .features {
+        text-align: center;
+        /* padding: 30px 20px; */
+        color: var(--text-color);
+        margin: 3% 0% 2% 6%;
+        padding: 0;
+        width: 85%;
+        /* display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 5vh;
+        border: 2px solid #b1f7f9;
+        box-shadow: #309da0 0px 0px 20px 2px;
+        overflow: auto;
+      } */}
+
+      .section-title {
+        text-align: center;
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        color: #f9f2f2;
+      }
+
+      /* Grid Layout */
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 0.5fr));
+        gap: 20px;
+        max-width: 1000px;
+        max-height: 390px;
+        margin: auto;
+      }
+
+      /* Cards */
+      .card {
+        background: linear-gradient(
+          to top,
+          rgba(238, 174, 202, 1) 0%,
+          rgba(148, 233, 229, 1) 57%
+        );
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+        position: relative;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(255, 0, 100, 0.4);
+      }
+
+      /* Icons */
+      .icon {
+        font-size: 32px;
+        color: #ff0066;
+        margin-bottom: 10px;
+      }
+
+      /* Know More Link */
+      .learn-more {
+        display: inline-block;
+        margin-top: 10px;
+        margin-left: -200px;
+        color: #ff0066;
+        font-size: 26px;
+        text-decoration: none;
+        transition: color 0.6s;
+        transition: transform 0.3s ease;
+      }
+
+      .learn-more:hover {
+        color: #ff3399;
+        transform: translateX(10px);
+      }
+
+      .nav_container {
+        margin-left: 20px;
+        margin-top: 100px;
+        height: 60vh;
+        width: 4vw;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border: 3px solid hsla(0, 0%, 100%, 0.18);
+        background: linear-gradient(
+          108.98deg,
+          hsla(0, 0%, 100%, 0.208),
+          hsla(0, 0%, 100%, 0.052)
+        );
+        -webkit-backdrop-filter: blur(25px);
+        backdrop-filter: blur(25px);
+        box-shadow: 0px 0px 20px 2px #309da0;
+        border-radius: 30px;
+        font-size: 2vw;
+      }
+
+      .home_logo,
+      .About_me_logo,
+      .projects_logo,
+      .blog_logo,
+      .podcast_logo,
+      .Contactme_logo,
+      .service_logo {
+        position: relative;
+        display: inline-block;
+      }
+
+      .tooltiptext {
+        font-family: poppins;
+        font-size: 15px;
+        visibility: hidden;
+        max-width: 200px;
+        background-color: rgb(224, 227, 224);
+        box-shadow: 0px 0px 20px 0px rgb(255, 254, 254);
+        background: blur;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 3px 3px;
+        position: absolute;
+        z-index: 1;
+        right: 150%;
+        /* border :2px solid rgb(188, 254, 248); */
+      }
+
+      .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 28%;
+        left: 165%;
+        border-width: 6px;
+        border-style: solid;
+        border-color: transparent rgb(0, 141, 129) transparent transparent;
+      }
+      .tooltiptext::before {
+        content: "";
+        position: absolute;
+        top: 28%;
+        left: 105%;
+        border-width: 6px;
+        border-style: solid;
+        border-color: transparent transparent transparent rgb(0, 141, 129);
+      }
+
+      .home_logo:hover .tooltiptext {
+        visibility: visible;
+      }
+
+      .About_me_logo:hover .tooltiptext {
+        visibility: visible;
+      }
+
+      .service_logo:hover .tooltiptext {
+        visibility: visible;
+      }
+
+      .projects_logo:hover .tooltiptext {
+        visibility: visible;
+      }
+
+      .blog_logo:hover .tooltiptext {
+        visibility: visible;
+      }
+
+      .podcast_logo:hover .tooltiptext {
+        visibility: visible;
+      }
+
+      .Contactme_logo:hover .tooltiptext {
+        visibility: visible;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .grid-container {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .section-title {
+          font-size: 28px;
+          /* padding-right: 5em;
+          margin: 0.5em; */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="features">
+      <p class="file_name">SERVICES</p>
+      <h2 class="section-title">What I Do</h2>
+      <div class="grid-container">
+        <div class="card">
+          <div class="icon">☰</div>
+          <h3>Business Strategy</h3>
+          <p>
+            I throw myself down among the tall grass by the stream as I lie
+            close to the earth.
+          </p>
+          <a href="#" class="learn-more"> →</a>
+        </div>
+
+        <div class="card">
+          <div class="icon">📖</div>
+          <h3>App Development</h3>
+          <p>
+            It uses a dictionary of over 200 Latin words, combined with a
+            handful of model sentence.
+          </p>
+          <a href="#" class="learn-more"> →</a>
+        </div>
+
+        <div class="card">
+          <div class="icon">📺</div>
+          <h3>App Development</h3>
+          <p>
+            I throw myself down among the tall grass by the stream as I lie
+            close to the earth.
+          </p>
+          <a href="#" class="learn-more"> →</a>
+        </div>
+
+        <div class="card">
+          <div class="icon">💬</div>
+          <h3>Mobile App</h3>
+          <p>
+            There are many variations of passages of Lorem Ipsum available, but
+            the majority.
+          </p>
+          <a href="#" class="learn-more"> →</a>
+        </div>
+
+        <div class="card">
+          <div class="icon">📶</div>
+          <h3>CEO Marketing</h3>
+          <p>
+            Always free from repetition, injected humour, or non-characteristic
+            words etc.
+          </p>
+          <a href="#" class="learn-more"> →</a>
+        </div>
+
+        <div class="card">
+          <div class="icon">🌀</div>
+          <h3>Personal Portfolio April</h3>
+          <p>
+            It uses a dictionary of over 200 Latin words, combined with a
+            handful of model sentence.
+          </p>
+          <a href="#" class="learn-more"> →</a>
+        </div>
+      </div>
+    </section>
+    <!-- <div class="nav_container">
+      <div class="home_logo">
+        <a href="home.html">
+          <i class="bx bxs-home">
+            <span class="tooltiptext"> HOME</span>
+          </i>
+        </a>
+      </div>
+      <div class="About_me_logo">
+        <a href="About_me.html"
+          ><i class="bx bxs-user">
+            <span class="tooltiptext"> ABOUT ME</span>
+          </i></a
+        >
+      </div>
+      <div class="service_logo">
+        <a href="service.html"
+          ><i class="bx bxs-cog">
+            <span class="tooltiptext">MY SERVICE </span></i
+          ></a
+        >
+      </div>
+      <div class="projects_logo">
+        <a href="projects.html">
+          <i class="bx bxs-briefcase">
+            <span class="tooltiptext"> PROJECTS</span>
+          </i>
+        </a>
+      </div>
+      <div class="blog_logo">
+        <a href="blog.html"
+          ><i class="bx bxl-blogger"><span class="tooltiptext"> BLOGS</span></i>
+        </a>
+      </div>
+      <div class="podcast_logo">
+        <a href="podcast.html"
+          ><i class="bx bx-podcast"
+            ><span class="tooltiptext"> PODCAST</span></i
+          >
+        </a>
+      </div>
+      <div class="Contactme_logo">
+        <a href="Contactme.html"
+          ><i class="bx bx-support">
+            <span class="tooltiptext">CONTACT </span>
+          </i>
+        </a>
+      </div>
+    </div> -->
+  </body>
+</html>
