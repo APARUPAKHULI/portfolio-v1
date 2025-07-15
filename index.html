@@ -153,6 +153,7 @@ body {
   color: var(--line_color);
   letter-spacing: 2px;
   transition: all 0.3s ease;
+      background: #94e9e5;
 }
 
 .button__text {
@@ -1067,20 +1068,54 @@ p {
         <!-- <a href="#"><i class="bx bxl-twitter"></i></a>
           <a href="#"><i class="bx bxl-medium-square"></i></a> -->
       </div>
-      <form action="https://formspree.io/f/mzzvbevw" method="POST">
-      <input type="email" class="email" placeholder="Email address*" required />
+      <form id="contact-form">
+      <input type="email" name="email" class="email" placeholder="Email address*" required />
       <!-- for connect with me button -->
       <div class="connect_with_me">
-        <a href="Submit" class="button type--C">
+        <button type="submit" class="button type--C">
           <div class="button__line"></div>
           <div class="button__line"></div>
           <span class="button__text">Connect with me</span>
           <div class="button__drow1"></div>
           <div class="button__drow2"></div>
-        </a>
+        </button>
       </div>
       </form>
     </div>
+
+    <script>
+  const form = document.getElementById("contact-form");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const data = {
+      email: form.elements["email"].value
+    };
+
+    // const data = {
+    //   // name: form.name.value,
+    //   email: form.email.value,
+    //   // message: form.message.value
+    // };
+
+    const response = await fetch("https://formspree.io/f/mzzvbevw", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",  // VERY IMPORTANT
+        "Accept": "application/json"
+      },
+       body: JSON.stringify(data)  // Convert form data to JSON
+    });
+
+    if (response.ok) {
+      alert("Message sent!");
+      form.reset();
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  });
+</script>
 
     <div class="main_container">
       <div class="main_container_name">
