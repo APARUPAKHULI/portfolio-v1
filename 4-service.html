@@ -22,6 +22,8 @@
         margin: 0;
         padding: 0;
         display: flex;
+        margin-left: 90px;
+        margin-right: 90px;
       }
       .file_name {
         margin-bottom: -25px;
@@ -34,9 +36,9 @@
         text-align: center;
         /* padding: 30px 20px; */
         color: var(--text-color);
-        margin: 3% 0% 2% 6%;
+        /* margin: 3% 0% 2% 6%; */
         padding: 0;
-        width: 85%;
+        width: 100%;
         /* display: flex;
         flex-direction: column;
         align-items: center;
@@ -50,7 +52,7 @@
         text-align: center;
         font-size: 36px;
         font-weight: bold;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         text-transform: uppercase;
         color: #f9f2f2;
       }
@@ -58,14 +60,21 @@
       /* Grid Layout */
       .grid-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 0.5fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
         gap: 20px;
-        max-width: 1000px;
+        max-width: 70vw;
         max-height: 390px;
         margin: auto;
+        /* display:inline-block; */
       }
 
       /* Cards */
+      .toggle_card{
+        display:none;
+      }
+
+
+
       .card {
         background: linear-gradient(
           to top,
@@ -78,7 +87,28 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         text-align: center;
         position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        z-index: 1;
       }
+
+      .toggle-card:checked + .card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.1);
+  width: 80%;
+  max-width: 500px;
+  z-index: 999;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Show extra info */
+.toggle-card:checked + .card .card-details {
+  opacity: 1;
+  max-height: 200px;
+  margin-top: 15px;
+}
 
       .card:hover {
         transform: translateY(-10px);
@@ -104,15 +134,81 @@
         transition: transform 0.3s ease;
       }
 
-      .learn-more:hover {
+        .learn-more:hover {
         color: #ff3399;
         transform: translateX(10px);
       }
 
+
+      .arrow {
+            display: flex;
+            width: 10vw;
+            height: 6.4vh;
+            /* border: 3px solid #b1f7f9; */
+            box-shadow: 0px 0px 18px 1px #e8feff;
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            position: relative;
+            left: 75vw;
+            top: 15vh;
+            font-size: 50px;
+            background: -webkit-linear-gradient(#12e2d8, #f772b0);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 1;
+        }
+
+        .left_arrow,
+        .show_option,
+        .right_arrow {
+            margin-top: -2px;
+        }
+
+        .nav_img {
+            display: inline-block;
+            pointer-events: auto;
+            height: 100px;
+
+        }
+
+        .menu {
+            visibility: hidden;
+            display: flex;
+            font-size: 30px;
+            flex-direction: column;
+            align-items: center;
+            font-family: poppins;
+            border-radius: 30px 30px 30px 0px;
+            box-shadow: 0px 0px 10px 2px #5ed1c9;
+            filter: none;
+            position: relative;
+            top: -13.5em;
+            left: 0.4em;
+            padding-left: 0.5vw;
+            /* height:50rem; */
+            overflow: hidden;
+            width: 2.8rem;
+            background: transparent;
+            text-shadow: #f8f4f6 0px 0px 0px;
+            padding-right: 8px;
+            transition: height 2s ease;
+            cursor: pointer;
+            pointer-events: none;
+
+        }
+
+        .nav_img:hover .menu {
+            visibility: visible;
+            height: 22rem;
+            pointer-events: auto;
+
+        }
+
       .nav_container {
-        margin-left: 20px;
-        margin-top: 100px;
-        height: 60vh;
+        /* visibility: hidden; */
+        margin-left:-5vw;
+        margin-top: 38vh;
+        height: 50vh;
         width: 4vw;
         padding: 0;
         display: flex;
@@ -130,6 +226,7 @@
         box-shadow: 0px 0px 20px 2px #309da0;
         border-radius: 30px;
         font-size: 2vw;
+        pointer-events: none;
       }
 
       .home_logo,
@@ -141,6 +238,7 @@
       .service_logo {
         position: relative;
         display: inline-block;
+        padding-top:2vh;
       }
 
       .tooltiptext {
@@ -227,6 +325,7 @@
       <p class="file_name">SERVICES</p>
       <h2 class="section-title">What I Do</h2>
       <div class="grid-container">
+        <!-- <input type="checkbox" class="toggle_card"> -->
         <div class="card">
           <div class="icon">☰</div>
           <h3>Business Strategy</h3>
@@ -235,6 +334,9 @@
             close to the earth.
           </p>
           <a href="#" class="learn-more"> →</a>
+          <!-- <div class="card_details">
+            hello world
+          </div> -->
         </div>
 
         <div class="card">
@@ -287,55 +389,107 @@
           <a href="#" class="learn-more"> →</a>
         </div>
       </div>
+          <div class="arrow">
+            <div class="left_arrow">
+                <a href="3-About_me.html"><i class='bx bxs-chevron-left'></i></a>
+            </div>
+            <div class="show_option">
+                <div class="nav_img">
+                    <i class='bx bx-menu-alt-left'></i>
+                    <div class="menu">
+                        <div class="home_logo">
+                            <a href="index.html">
+                                <i class="bx bxs-home">
+                                    <span class="tooltiptext"> HOME</span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="About_me_logo">
+                            <a href="3-About_me.html">
+                                <i class="bx bxs-user">
+                                    <span class="tooltiptext"> ABOUT ME</span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="service_logo">
+                            <a href="4-service.html">
+                                <i class='bx bxs-cog'>
+                                    <span class="tooltiptext">MY SERVICE </span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="projects_logo">
+                            <a href="5-portfolio.html">
+                                <i class="bx bxs-briefcase">
+                                    <span class="tooltiptext"> PORTFOLIO</span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="testimonials_logo">
+                            <a href="6-testimonials.html">
+                              <i class="bx bx-podcast">
+                                <span class="tooltiptext">
+                                  TESTIMONIALS
+                                </span>
+                              </i> 
+                            </a>
+                        </div>
+                        <div class="blog_logo">
+                            <a href="7-blog.html">
+                              <i class="bx bxl-blogger">
+                                <span class="tooltiptext"> 
+                                  BLOGS & NEWS
+                                </span>
+                              </i> 
+                            </a>
+                        </div>
+
+                        <div class="Contactme_logo">
+                            <a href="8-contact.html"><i class="bx bx-support">
+                                    <span class="tooltiptext">CONTACT </span>
+                                </i> </a>
+                        </div>
+                    </div>
+                    <!-- </i> -->
+                </div>
+
+            </div>
+            <div class="right_arrow"><a href="5-portfolio.html"><i class='bx bxs-chevron-right'></i></a>
+            </div>
+        </div>
+
     </section>
     <!-- <div class="nav_container">
-      <div class="home_logo">
-        <a href="home.html">
-          <i class="bx bxs-home">
-            <span class="tooltiptext"> HOME</span>
-          </i>
-        </a>
-      </div>
-      <div class="About_me_logo">
-        <a href="About_me.html"
-          ><i class="bx bxs-user">
-            <span class="tooltiptext"> ABOUT ME</span>
-          </i></a
-        >
-      </div>
-      <div class="service_logo">
-        <a href="service.html"
-          ><i class="bx bxs-cog">
-            <span class="tooltiptext">MY SERVICE </span></i
-          ></a
-        >
-      </div>
-      <div class="projects_logo">
-        <a href="projects.html">
-          <i class="bx bxs-briefcase">
-            <span class="tooltiptext"> PROJECTS</span>
-          </i>
-        </a>
-      </div>
-      <div class="blog_logo">
-        <a href="blog.html"
-          ><i class="bx bxl-blogger"><span class="tooltiptext"> BLOGS</span></i>
-        </a>
-      </div>
-      <div class="podcast_logo">
-        <a href="podcast.html"
-          ><i class="bx bx-podcast"
-            ><span class="tooltiptext"> PODCAST</span></i
-          >
-        </a>
-      </div>
-      <div class="Contactme_logo">
-        <a href="Contactme.html"
-          ><i class="bx bx-support">
-            <span class="tooltiptext">CONTACT </span>
-          </i>
-        </a>
-      </div>
-    </div> -->
+    <div class="home_logo">
+      <a href="2-home.html"> <i class="bx bxs-home">
+          <span class="tooltiptext"> HOME</span>
+        </i> </a>
+    </div>
+    <div class="About_me_logo">
+      <a href="3-About_me.html"><i class="bx bxs-user">
+          <span class="tooltiptext">RESUME</span>
+        </i></a>
+    </div>
+    <div class="service_logo">
+      <a href="4-service.html"><i class='bx bxs-cog'>
+          <span class="tooltiptext">MY SERVICE </span></i></a>
+    </div>
+    <div class="projects_logo">
+      <a href="5-portfolio.html"> <i class="bx bxs-briefcase">
+          <span class="tooltiptext"> PROJECTS</span>
+        </i> </a>
+    </div>
+    <div class="testimonials_logo">
+      <a href="6-testimonials.html"><i class="bx bx-podcast"><span class="tooltiptext"> TESTIMONIALS</span></i> </a>
+    </div>
+    <div class="blog_logo">
+      <a href="7-blog.html"><i class="bx bxl-blogger"><span class="tooltiptext"> BLOGS& NEWS</span></i> </a>
+    </div>
+    <div class="Contactme_logo">
+      <a href="8-contact.html"><i class="bx bx-support">
+          <span class="tooltiptext">CONTACT </span>
+        </i> </a>
+    </div>
+  </div> -->
   </body>
 </html>

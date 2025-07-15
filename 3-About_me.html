@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Resume</title>
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <style>
         /* Global Styles */
         body {
@@ -14,11 +15,12 @@
                     rgba(238, 174, 202, 1) 0%,
                     rgba(148, 233, 229, 1) 57%);
             color: white;
-            margin-left: 87px;
+            margin-left: 105px;
             margin-right: 87px;
             /* padding-left: 4.69vw;
             padding-right: 4.6vw; */
             text-align: center;
+            /* overflow: hidden; */
 
         }
 
@@ -76,6 +78,174 @@
             box-shadow: 0px 0px 5px 0px #98adac;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             transform: scale(1.03);
+        }
+
+        .arrow {
+            display: flex;
+            width: 10vw;
+            height: 6.4vh;
+            /* border: 3px solid #b1f7f9; */
+            box-shadow: 0px 0px 18px 1px #e8feff;
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            position: relative;
+            left: 73vw;
+            /* top: -2vh; */
+            font-size: 50px;
+            background: -webkit-linear-gradient(#12e2d8, #f772b0);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 1;
+        }
+
+        .left_arrow,
+        .show_option,
+        .right_arrow {
+            margin-top: -2px;
+        }
+
+        .nav_img {
+            display: inline-block;
+            pointer-events: auto;
+            height: 100px;
+
+        }
+
+        .menu {
+            visibility: hidden;
+            display: flex;
+            font-size: 30px;
+            flex-direction: column;
+            align-items: center;
+            font-family: poppins;
+            border-radius: 30px 30px 30px 0px;
+            box-shadow: 0px 0px 10px 2px #5ed1c9;
+            filter: none;
+            position: relative;
+            top: -13.5em;
+            left: 0.4em;
+            padding-left: 0.5vw;
+            /* height:50rem; */
+            overflow: hidden;
+            width: 2.8rem;
+            background: transparent;
+            text-shadow: #f8f4f6 0px 0px 0px;
+            padding-right: 8px;
+            transition: height 2s ease;
+            cursor: pointer;
+            pointer-events: none;
+
+        }
+
+        .nav_img:hover .menu {
+            visibility: visible;
+            height: 22rem;
+            pointer-events: auto;
+
+        }
+
+        .nav_container {
+            position: -webkit-sticky;
+            height: 60vh;
+            width: 4vw;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            border: 3px solid hsla(0, 0%, 100%, .18);
+            background: linear-gradient(108.98deg, hsla(0, 0%, 100%, .208), hsla(0, 0%, 100%, .052));
+            -webkit-backdrop-filter: blur(25px);
+            backdrop-filter: blur(25px);
+            box-shadow: 0px 0px 20px 2px #309da0;
+            border-radius: 30px;
+            font-size: 2vw;
+
+        }
+
+        .home_logo,
+        .About_me_logo,
+        .projects_logo,
+        .blog_logo,
+        .podcast_logo,
+        .Contactme_logo,
+        .service_logo,
+        .testimonials_logo {
+            position: relative;
+            display: inline-block;
+            background: -webkit-radial-gradient(#04f3e7, #f7177f);
+            background-clip: text;
+            /* -webkit-text-fill-color: transparent; */
+            padding-top: 15px;
+        }
+
+
+        .tooltiptext {
+            font-family: poppins;
+            font-size: 15px;
+            visibility: hidden;
+            width: 74px;
+            background-color: rgb(224, 227, 224);
+            box-shadow: 0px 0px 15px 0px rgb(255, 254, 254);
+            background: blur;
+            -webkit-text-fill-color: #f83892;
+            text-align: center;
+            border-radius: 6px;
+            padding: 3px 3px;
+            position: absolute;
+            z-index: 1;
+            right: 162%;
+
+            /* border :2px solid rgb(188, 254, 248); */
+        }
+
+        .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 28%;
+            left: 165%;
+            border-width: 6px;
+            border-style: solid;
+            border-color: transparent rgb(0, 141, 129) transparent transparent;
+        }
+
+        .tooltiptext::before {
+            content: "";
+            position: absolute;
+            top: 28%;
+            left: 105%;
+            border-width: 6px;
+            border-style: solid;
+            border-color: transparent transparent transparent rgb(0, 141, 129);
+        }
+
+        .home_logo:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .About_me_logo:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .service_logo:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .projects_logo:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .blog_logo:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .testimonials_logo:hover .tooltiptext {
+            visibility: visible;
+            width: 7.5vw;
+        }
+
+        .Contactme_logo:hover .tooltiptext {
+            visibility: visible;
         }
 
 
@@ -156,7 +326,7 @@
             left: 18px;
             margin-top: 29px;
             height: 2.5px;
-            width: 3.1%;
+            width: 2.4%;
             background: rgba(125, 220, 215, 1);
         }
 
@@ -183,7 +353,7 @@
             padding: 20px;
             border-radius: 8px;
             text-align: left;
-            width: 100%;
+            width: 96%;
             position: relative;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
@@ -221,8 +391,9 @@
         }
 
         .double_column {
+
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             /* align-items: flex-start; */
             /* border:4px solid red; */
             margin-top: 20px;
@@ -307,7 +478,7 @@
             color: var(--text-color);
             line-height: 33px;
             /* font-weight: bold; */
-            transition: width 0.5s ease;
+            transition: width 0.5s;
             border-radius: 25px;
             font-size: 12px;
             font-weight: 400;
@@ -346,7 +517,7 @@
             }
 
             .timeline::before {
-                left: 10px;
+                left: 9px;
             }
 
             .timeline-item {
@@ -354,17 +525,43 @@
             }
 
             .timeline-item::before {
-                left: 4px;
+                left: 4.5px;
             }
 
             .point_hov {
 
-                left: -4.5vh;
-                top: 0.63vh;
+                left: -4.8vh;
+                /* top: 0.98vh; */
             }
 
             .timeline-item::after {
-                left: 1vh;
+                left: 1.8vh;
+                width: 4%;
+            }
+
+            /* skill bar */
+
+            .double_column {
+                margin-top: -30px;
+                display: block;
+            }
+
+            .double_column h3 {
+                margin-bottom: 3.5vh;
+            }
+
+            .single_column1,
+            .single_column2 {
+                width: auto;
+            }
+            .arrow{
+            width: 33vw;
+        height: 38px;
+        left: 49vw;
+        font-size: 40px;
+            }
+            .menu{
+                top: -13em;
             }
         }
     </style>
@@ -400,8 +597,9 @@
 
     </script>
     <!-- Header Section -->
+    <!-- <div class="total"> -->
     <section class="resume-header">
-        <p>7+ YEARS OF EXPERIENCE</p>
+        <!-- <p>7+ YEARS OF EXPERIENCE</p> -->
         <h1>About Me</h1>
     </section>
 
@@ -413,22 +611,21 @@
         <button onclick="showContent(4 , this)" class="tab">Interview</button>
     </div>
 
+
     <!-- Education Section -->
     <div class="content" id="content1">
         <section class="education">
-            <h3>2007 - 2010</h3>
-            <h1>Education Quality</h1>
+            <h3>2015 - 2026</h3>
+            <h1>Education Qualification</h1>
             <!-- first Item -->
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="point_hov"></div>
-                        <h3>Personal Portfolio April Fools</h3>
-                        <p class="university">University of DVI (1997 - 2001)</p>
-                        <p>my name is aparup akhuli ,i am 20 years old, i read in the calcutta technical school,i live
-                            in
-                            bisinda.</p>
-                        <span class="rating">4.30/5</span>
+                        <h3>Secondary</h3>
+                        <p class="university">Bisinda KaliKrishna Memorial High School (2015 - 2021)</p>
+                        <p>During my secondary education at Bisinda KaliKrishna Memorial High School, I built a strong academic foundation, especially in mathematics and science. I actively participated in school-level quizzes and science fairs, which sparked my interest in technology. </p>
+                        <span class="rating">94%</span>
                     </div>
                     <!-- </div> -->
                 </div>
@@ -437,14 +634,12 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="point_hov"></div>
-                        <h3>Examples Of Personal Portfolio</h3>
-                        <p class="university">College of Studies (2000 - 2002)</p>
+                        <h3>Higher Secondary</h3>
+                        <p class="university">Ban-Ashuria High School (2021 - 2023)</p>
                         <p>
-                            my name is aparup akhuli ,i am 20 years old, i read in the calcutta technical school,i live
-                            in
-                            bisinda.
+                            My higher secondary journey at Ban-Ashuria High School was focused on developing analytical skills and understanding the basics of computer science. I gained deeper knowledge in Physics, Chemistry and mathematics, preparing me for a technical career.
                         </p>
-                        <span class="rating">4.50/5</span>
+                        <span class="rating">74%</span>
                     </div>
                 </div>
 
@@ -453,21 +648,78 @@
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="point_hov"></div>
-                        <h3>Tips For Personal Portfolio</h3>
-                        <p class="university">University of Studies (1997 - 2001)</p>
+                        <h3>Diploma in Computer Science and Technology</h3>
+                        <p class="university">The Calcutta Technical School (2023 - 2026)</p>
                         <p>
-                            my name is aparup akhuli ,i am 20 years old, i read in the calcutta technical school,i live
-                            in
-                            bisinda.
+                            Currently pursuing a diploma at The Calcutta Technical School, I’m learning programming, networking, and software development. I’ve worked on small projects and am passionate about building creative web applications and exploring AI technologies.
                         </p>
-                        <span class="rating">4.80/5</span>
+                        <span class="rating">8.0</span>
                     </div>
                 </div>
             </div>
-    </div>
-    </section>
-    </div>
 
+        </section>
+
+        <div class="arrow">
+            <div class="left_arrow">
+                <a href="index.html"><i class='bx bxs-chevron-left'></i></a>
+            </div>
+            <div class="show_option">
+                <div class="nav_img">
+                    <i class='bx bx-menu-alt-left'></i>
+                    <div class="menu">
+                        <div class="home_logo">
+                            <a href="index.html">
+                                <i class="bx bxs-home">
+                                    <span class="tooltiptext"> HOME</span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="About_me_logo">
+                            <a href="3-About_me.html">
+                                <i class="bx bxs-user">
+                                    <span class="tooltiptext"> ABOUT ME</span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="service_logo">
+                            <a href="4-service.html">
+                                <i class='bx bxs-cog'>
+                                    <span class="tooltiptext">MY SERVICE </span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="projects_logo">
+                            <a href="5-portfolio.html">
+                                <i class="bx bxs-briefcase">
+                                    <span class="tooltiptext"> PORTFOLIO</span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="testimonials_logo">
+                            <a href="6-testimonials.html"><i class="bx bx-podcast"><span class="tooltiptext">
+                                        TESTIMONIALS</span></i> </a>
+                        </div>
+                        <div class="blog_logo">
+                            <a href="7-blog.html"><i class="bx bxl-blogger"><span class="tooltiptext"> BLOGS &
+                                        NEWS</span></i> </a>
+                        </div>
+
+                        <div class="Contactme_logo">
+                            <a href="8-contact.html"><i class="bx bx-support">
+                                    <span class="tooltiptext">CONTACT </span>
+                                </i> </a>
+                        </div>
+                    </div>
+                    <!-- </i> -->
+                </div>
+
+            </div>
+            <div class="right_arrow"><a href="4-service.html"><i class='bx bxs-chevron-right'></i></a>
+            </div>
+        </div>
+    </div>
+    
 
     <div class="content" id="content2">
         <div class="double_column">
@@ -483,32 +735,32 @@
                  </div>
                 </div> -->
                 <div class="progress-wrapper">
-                    <label>Education</label>
+                    <label>UI/UX</label>
                     <div class="progress-container">
                         <div class="progress-bar" style="width: 90%;">90%</div>
                     </div>
 
-                    <label>Professional Skill</label>
+                    <label>Figma</label>
                     <div class="progress-container">
                         <div class="progress-bar" style="width: 80%;">80%</div>
                     </div>
 
-                    <label>Experience</label>
+                    <label>Adobe XD</label>
                     <div class="progress-container">
                         <div class="progress-bar" style="width: 70%;">70%</div>
                     </div>
 
-                    <label>Interview</label>
+                    <label>Web Design</label>
                     <div class="progress-container">
                         <div class="progress-bar" style="width: 85%;">85%</div>
                     </div>
 
-                    <div class="progress-wrapper">
+                    <!-- <div class="progress-wrapper">
                         <label>Education</label>
                         <div class="progress-container">
                             <div class="progress-bar" style="width: 90%;">90%</div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="single_column2">
@@ -516,63 +768,170 @@
                 <h1>Development Skill</h1>
 
                 <div class="progress-wrapper">
-                    <label>Education</label>
+                    <label>HTML</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 92%;">92%</div>
+                    </div>
+
+
+                    <label>Css</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 95%;">95%</div>
+                    </div>
+
+                    <label>Javascript</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 70%;">70%</div>
+                    </div>
+
+                    <label>TypeScript</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 82%;">82%</div>
+                    </div>
+
+
+
+                    <label>React</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 65%;">65%</div>
+                    </div>
+
+                    <label>Next.js</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 58%;">58%</div>
+                    </div>
+
+                    <label>Node.js</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 80%;">80%</div>
+                    </div>
+
+                    <label>Git</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 85%;">85%</div>
+                    </div>
+
+                    <label>DSA</label>
                     <div class="progress-container">
                         <div class="progress-bar" style="width: 60%;">60%</div>
                     </div>
 
-                    <label>Professional Skill</label>
+                    <label>Database management</label>
                     <div class="progress-container">
-                        <div class="progress-bar" style="width: 80%;">90%</div>
+                        <div class="progress-bar" style="width: 60%;">60%</div>
                     </div>
 
-                    <label>Experience</label>
+                    <label>Communication</label>
                     <div class="progress-container">
-                        <div class="progress-bar" style="width: 70%;">90%</div>
+                        <div class="progress-bar" style="width: 85%;">85%</div>
                     </div>
 
-                    <label>Interview</label>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 85%;">90%</div>
-                    </div>
 
-                    <div class="progress-wrapper">
-                        <label>Education</label>
-                        <div class="progress-container">
-                            <div class="progress-bar" style="width: 90%;">90%</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="content" id="content3">
-        <div class="empty">
-            <h2>Not Updated yet...</h2>
-            <h1>Coming soon</h1>
+        <div class="arrow">
+            <div class="left_arrow">
+                <a href="index.html"><i class='bx bxs-chevron-left'></i></a>
+            </div>
+            <div class="show_option">
+                <div class="nav_img">
+                    <i class='bx bx-menu-alt-left'></i>
+                    <div class="menu">
+                        <div class="home_logo">
+                            <a href="index.html">
+                                <i class="bx bxs-home">
+                                    <span class="tooltiptext"> HOME</span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="About_me_logo">
+                            <a href="3-About_me.html">
+                                <i class="bx bxs-user">
+                                    <span class="tooltiptext"> ABOUT ME</span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="service_logo">
+                            <a href="4-service.html">
+                                <i class='bx bxs-cog'>
+                                    <span class="tooltiptext">MY SERVICE </span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="projects_logo">
+                            <a href="5-portfolio.html">
+                                <i class="bx bxs-briefcase">
+                                    <span class="tooltiptext"> PORTFOLIO</span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="testimonials_logo">
+                            <a href="6-testimonials.html"><i class="bx bx-podcast"><span class="tooltiptext">
+                                        TESTIMONIALS</span></i> </a>
+                        </div>
+                        <div class="blog_logo">
+                            <a href="7-blog.html"><i class="bx bxl-blogger"><span class="tooltiptext"> BLOGS &
+                                        NEWS</span></i> </a>
+                        </div>
+
+                        <div class="Contactme_logo">
+                            <a href="8-contact.html"><i class="bx bx-support">
+                                    <span class="tooltiptext">CONTACT </span>
+                                </i> </a>
+                        </div>
+                    </div>
+                    <!-- </i> -->
+                </div>
+
+            </div>
+            <div class="right_arrow"><a href="4-service.html"><i class='bx bxs-chevron-right'></i></a>
+            </div>
         </div>
 
+    </div>
+    <div class="content" id="content3">
+        <!-- <div class="empty">
+            <h2>Not Updated yet...</h2>
+            <h1>Coming soon</h1>
+        </div> -->
+
         <!-- Education Section -->
-        <!-- <section class="education">
+        <section class="education">
             <h3>2007 - 2010</h3>
-            <h1>Job Experience</h1>
-            <!-- first Item -->
-        <!-- <div class="timeline">
+            <h1>Experience</h1>
+            <!-- first Item  -->
+            <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="point_hov"></div>
-                        <h3>Personal Portfolio April Fools</h3>
-                        <p class="university">University of DVI (1997 - 2001)</p>
-                        <p>my name is aparup akhuli ,i am 20 years old, i read in the calcutta technical school,i live
-                            in
-                            bisinda.</p>
-                        <span class="rating">4.30/5</span>
-                    </div> -->
-        <!-- </div> -->
-        <!-- </div> -->
+                        <h3>Independent Software Developer</h3>
+                        <p class="university">Self-Initiated Projects & Collaborative Learning (Jun 2021 - present)</p>
+                        <p>
+                        <ul>
+                            <li>Spearheaded the development of multiple front-end projects using HTML, CSS, and
+                                JavaScript, demonstrating practical application of modern UI/UX principles.</li>
 
-        <!-- Second Item -->
-        <!-- <div class="timeline-item">
+                            <li>Engineered responsive web components and interactive interfaces to mimic real-world
+                                client requirements, thereby refining problem-solving and debugging abilities.</li>
+
+                            <li>Actively contributed to peer learning communities, resolving technical issues and
+                                sharing insights into efficient coding practices.</li>
+
+                            <li>Simulated full project cycles including wireframing, version control (Git), and
+                                deployment to GitHub Pages, building a solid foundation in SDLC processes.</li>
+
+                            <li>Continuously upskilling through rigorous exploration of frameworks such as React.js and
+                                backend fundamentals, maintaining alignment with industry standards.</li>
+                        </ul>
+                        </p>
+                        <!-- <span class="rating">4.30/5</span> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Item -->
+            <!-- <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="point_hov"></div>
                         <h3>Examples Of Personal Portfolio</h3>
@@ -588,7 +947,7 @@
 
 
                 <!-- Third Item -->
-        <!-- <div class="timeline-item">
+            <!-- <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="point_hov"></div>
                         <h3>Tips For Personal Portfolio</h3>
@@ -604,13 +963,132 @@
             </div>
     </div>
     </section>  -->
-        <!-- </div> -->
+            <!-- </div> -->
+            <div class="arrow">
+                <div class="left_arrow">
+                    <a href="index.html"><i class='bx bxs-chevron-left'></i></a>
+                </div>
+                <div class="show_option">
+                    <div class="nav_img">
+                        <i class='bx bx-menu-alt-left'></i>
+                        <div class="menu">
+                            <div class="home_logo">
+                                <a href="index.html">
+                                    <i class="bx bxs-home">
+                                        <span class="tooltiptext"> HOME</span>
+                                    </i>
+                                </a>
+                            </div>
+                            <div class="About_me_logo">
+                                <a href="3-About_me.html">
+                                    <i class="bx bxs-user">
+                                        <span class="tooltiptext"> ABOUT ME</span>
+                                    </i>
+                                </a>
+                            </div>
+                            <div class="service_logo">
+                                <a href="4-service.html">
+                                    <i class='bx bxs-cog'>
+                                        <span class="tooltiptext">MY SERVICE </span>
+                                    </i>
+                                </a>
+                            </div>
+                            <div class="projects_logo">
+                                <a href="5-portfolio.html">
+                                    <i class="bx bxs-briefcase">
+                                        <span class="tooltiptext"> PORTFOLIO</span>
+                                    </i>
+                                </a>
+                            </div>
+                            <div class="testimonials_logo">
+                                <a href="6-testimonials.html"><i class="bx bx-podcast"><span class="tooltiptext">
+                                            TESTIMONIALS</span></i> </a>
+                            </div>
+                            <div class="blog_logo">
+                                <a href="7-blog.html"><i class="bx bxl-blogger"><span class="tooltiptext"> BLOGS &
+                                            NEWS</span></i> </a>
+                            </div>
+
+                            <div class="Contactme_logo">
+                                <a href="8-contact.html"><i class="bx bx-support">
+                                        <span class="tooltiptext">CONTACT </span>
+                                    </i> </a>
+                            </div>
+                        </div>
+                        <!-- </i> -->
+                    </div>
+
+                </div>
+                <div class="right_arrow"><a href="4-service.html"><i class='bx bxs-chevron-right'></i></a>
+                </div>
+            </div>
+
     </div>
     <div class="content" id="content4">
         <div class="empty">
             <h2>Not Updated yet...</h2>
             <h1>Coming soon</h1>
         </div>
+        <div class="arrow">
+            <div class="left_arrow">
+                <a href="index.html"><i class='bx bxs-chevron-left'></i></a>
+            </div>
+            <div class="show_option">
+                <div class="nav_img">
+                    <i class='bx bx-menu-alt-left'></i>
+                    <div class="menu">
+                        <div class="home_logo">
+                            <a href="index.html">
+                                <i class="bx bxs-home">
+                                    <span class="tooltiptext"> HOME</span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="About_me_logo">
+                            <a href="3-About_me.html">
+                                <i class="bx bxs-user">
+                                    <span class="tooltiptext"> ABOUT ME</span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="service_logo">
+                            <a href="4-service.html">
+                                <i class='bx bxs-cog'>
+                                    <span class="tooltiptext">MY SERVICE </span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="projects_logo">
+                            <a href="5-portfolio.html">
+                                <i class="bx bxs-briefcase">
+                                    <span class="tooltiptext"> PORTFOLIO</span>
+                                </i>
+                            </a>
+                        </div>
+                        <div class="testimonials_logo">
+                            <a href="6-testimonials.html"><i class="bx bx-podcast"><span class="tooltiptext">
+                                        TESTIMONIALS</span></i> </a>
+                        </div>
+                        <div class="blog_logo">
+                            <a href="7-blog.html"><i class="bx bxl-blogger"><span class="tooltiptext"> BLOGS &
+                                        NEWS</span></i> </a>
+                        </div>
+
+                        <div class="Contactme_logo">
+                            <a href="8-contact.html"><i class="bx bx-support">
+                                    <span class="tooltiptext">CONTACT </span>
+                                </i> </a>
+                        </div>
+                    </div>
+                    <!-- </i> -->
+                </div>
+
+            </div>
+            <div class="right_arrow"><a href="4-service.html"><i class='bx bxs-chevron-right'></i></a>
+            </div>
+        </div>
+
+    </div>
     </div>
 </body>
 
