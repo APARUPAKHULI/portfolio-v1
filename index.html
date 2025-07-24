@@ -1163,18 +1163,24 @@ p {
 
   .frontend_developer{
     font-size: 7vw;
+    top:-2vh;
+    position: relative;
   } 
+  .my_profiles{
+    top:-1vh;
+    position: relative;
+  }
   .email{
     width: 75vw;
-    top:-1.5vh;
+    top:-3.5vh;
     position: relative;
   }
   .connect_with_me{
-    top:-4vh;
+    top:-5vh;
     position: relative;
   }
   .profile_pic{
-    top:-3vh;
+    top:-5vh;
     position: relative;
   }
 
@@ -1182,7 +1188,9 @@ p {
 
   .name {
     font-size: 11vw;
-    height: 15 wid
+    height: 15 wid;
+    top:-3vh;
+    position: relative;
   }
 
   .main_container {
@@ -1196,8 +1204,8 @@ p {
 
   .arrow {
         position: absolute;
-        bottom: -56vw;
-        left: 57vw;
+        bottom: -73vw;
+        left: 60vw;
         width: 30vw;
         height:5.3vh;
         text-align: center;
@@ -1354,7 +1362,7 @@ p {
 
     // Check and apply saved theme
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") {
+    if (savedTheme === "dark") {
       body.classList.remove("light-mode");
       toggle.checked = false;
     } else {
