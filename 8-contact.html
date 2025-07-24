@@ -27,8 +27,8 @@
                     rgba(148, 233, 229, 1) 57%);
             color: white;
             margin:0;
-            /* margin-left: 87px;
-            margin-right: 87px; */
+            margin-left: 87px;
+            margin-right: 87px;
             /*padding-left: 4.69vw;
             padding-right: 4.6vw;*/
             text-align: center;
@@ -104,15 +104,15 @@
 
         .contact-grid {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            /* flex-wrap: wrap; */
+            gap: 50px;
             margin-top: 30px;
         }
 
        
         .contact-form {
             flex: 1;
-            margin-top:-80px;
+            /* margin-top:-80px; */
             min-width: 300px;
            
             
@@ -122,7 +122,7 @@
             /* display:flex;
             flex-flow: row; */
             display: grid;
-            column-gap:30px;
+            column-gap:20px;
             grid-template-columns: repeat(2,1fr);
             
         }
@@ -135,6 +135,7 @@
           rgba(148, 233, 229, 1) 57%
         );
             padding: 20px;
+            padding-bottom: -50px;
             border-radius: 10px;
             margin-bottom: 20px;
             text-align: center;
@@ -147,8 +148,9 @@
         }
 
         .info-card h4 {
-            margin: 0 0 5px;
-        
+    margin: 0 0 10px;
+    font-size: 25px;
+    font-weight: 800;
         }
 
         .form-group {
@@ -157,7 +159,7 @@
 
         input,
         textarea {
-            width: 100%;
+            width: 90%;
             padding: 12px;
             border-radius: 10px;
             border: none;
@@ -182,7 +184,22 @@
             border-radius: 25px;
             cursor: pointer;
             width: 40vw;
-            margin-left: 22px;
+            margin-left: -30px;
+            
+        }
+        .btn1 {
+        background:linear-gradient(
+          to top,
+          rgba(238, 174, 202, 1) 0%,
+          rgba(148, 233, 229, 1) 57%
+        );
+            padding: 12px 25px;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 25vw;
+            /* margin-left: -30px; */
             
         }
 
@@ -251,9 +268,7 @@
     </div> -->
 
     <div class="container">
-        <p class="section-title">Get In Touch</p>
-        <h2>Got Any Questions</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+       
 
         <div class="contact-grid">
             <div class="contact-info">
@@ -271,11 +286,22 @@
                     <p>aparupakhuli11@gmail.com<br>aparupakhuli.cts.@gmail.com</p>
                 </div>
                 <div class="info-card">
+                    <h4><i class='bx bx-envelope' ></i> Email</h4>
+                    <p>aparupakhuli11@gmail.com<br>aparupakhuli.cts.@gmail.com</p>
+                </div>
+                <div class="info-card">
+                    <h4><i class='bx bx-envelope' ></i> Email</h4>
+                    <p>aparupakhuli11@gmail.com<br>aparupakhuli.cts.@gmail.com</p>
+                </div>
+                <div class="info-card">
                     <h4>📠 Fax</h4>
                     <p>1260-0219 / 1260-0822</p>
                 </div>
             </div>
             <form id="contact-form1">
+                 <p class="section-title">Get In Touch</p>
+        <h2>Got Any Questions or Idea?</h2>
+        <p> I’m always open to new projects and collaborations. Drop a message and I’ll get back to you soon!</p>
   <div class="contact-form">
     <div class="form-group">
       <input type="text" name="name" placeholder="Your Name*" required>
@@ -302,14 +328,14 @@
   <div class="newsletter">
     <p class="section-title">Our Newsletter</p>
     <h2>Subscribe And Ask For Free</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+    <p>Let's discuss about your new Idea...</p>
     <input type="email" name="email" placeholder="Your Email" required>
-    <button type="submit" class="btn">Subscribe</button>
+    <button type="submit" class="btn1">Subscribe</button>
   </div>
 </form>
     </div>
 
-    <footer>
+    <!-- <footer>
         <div class="footer-col">
             <div class="footer-logo">Hecxa</div>
             <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet...</p>
@@ -341,10 +367,10 @@
                 <li>Payment</li>
             </ul>
         </div>
-    </footer>
+    </footer> -->
 
 <script>
-  // Handle newsletter form
+  // Handle newsletter form6x
   const newsletterForm = document.getElementById("newsletter-form");
 
   newsletterForm.addEventListener("submit", async function (e) {

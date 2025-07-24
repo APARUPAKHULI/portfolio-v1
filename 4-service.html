@@ -46,7 +46,8 @@
         border: 2px solid #b1f7f9;
         box-shadow: #309da0 0px 0px 20px 2px;
         overflow: auto;
-      } */}
+      } */
+      }
 
       .section-title {
         text-align: center;
@@ -69,11 +70,9 @@
       }
 
       /* Cards */
-      .toggle_card{
-        display:none;
+      .toggle_card {
+        display: none;
       }
-
-
 
       .card {
         background: linear-gradient(
@@ -93,24 +92,24 @@
       }
 
       .toggle-card:checked + .card {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1.1);
-  width: 80%;
-  max-width: 500px;
-  z-index: 999;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-}
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.1);
+        width: 80%;
+        max-width: 500px;
+        z-index: 999;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      }
 
-/* Show extra info */
-.toggle-card:checked + .card .card-details {
-  opacity: 1;
-  max-height: 200px;
-  margin-top: 15px;
-}
+      /* Show extra info */
+      .toggle-card:checked + .card .card-details {
+        opacity: 1;
+        max-height: 200px;
+        margin-top: 15px;
+      }
 
-      .card:hover {
+      .card:hover  {
         transform: translateY(-10px);
         box-shadow: 0 10px 20px rgba(255, 0, 100, 0.4);
       }
@@ -134,79 +133,137 @@
         transition: transform 0.3s ease;
       }
 
-        .learn-more:hover {
-        color: #ff3399;
-        transform: translateX(10px);
+      .card:hover .learn-more {
+        color: #33ff66;
+        transform: translateX(100px);
       }
 
 
+    .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
+}
+
+.card {
+  width: 250px;
+  padding: 20px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.card .learn-more {
+  font-size: 20px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.blur {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+.expanded-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 600px;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.expanded-card .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+
+
+
+
+
       .arrow {
-            display: flex;
-            width: 10vw;
-            height: 6.4vh;
-            /* border: 3px solid #b1f7f9; */
-            box-shadow: 0px 0px 18px 1px #e8feff;
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            position: relative;
-            left: 75vw;
-            top: 15vh;
-            font-size: 50px;
-            background: -webkit-linear-gradient(#12e2d8, #f772b0);
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            z-index: 1;
-        }
+        display: flex;
+        width: 10vw;
+        height: 6.4vh;
+        /* border: 3px solid #b1f7f9; */
+        box-shadow: 0px 0px 18px 1px #e8feff;
+        backdrop-filter: blur(20px);
+        border-radius: 25px;
+        position: relative;
+        left: 76vw;
+        top: 15vh;
+        font-size: 50px;
+        background: -webkit-linear-gradient(#12e2d8, #f772b0);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        z-index: 1;
+      }
 
-        .left_arrow,
-        .show_option,
-        .right_arrow {
-            margin-top: -2px;
-        }
+      .left_arrow,
+      .show_option,
+      .right_arrow {
+        margin-top: -2px;
+      }
 
-        .nav_img {
-            display: inline-block;
-            pointer-events: auto;
-            height: 100px;
+      .nav_img {
+        display: inline-block;
+        pointer-events: auto;
+        height: 100px;
+      }
 
-        }
+      .menu {
+        visibility: hidden;
+        display: flex;
+        font-size: 30px;
+        flex-direction: column;
+        align-items: center;
+        font-family: poppins;
+        border-radius: 30px 30px 30px 0px;
+        box-shadow: 0px 0px 10px 2px #5ed1c9;
+        filter: none;
+        position: relative;
+        top: -13.5em;
+        left: 0.4em;
+        padding-left: 0.5vw;
+        /* height:50rem; */
+        overflow: hidden;
+        width: 2.8rem;
+        background: transparent;
+        text-shadow: #f8f4f6 0px 0px 0px;
+        padding-right: 8px;
+        transition: height 2s ease;
+        cursor: pointer;
+        pointer-events: none;
+      }
 
-        .menu {
-            visibility: hidden;
-            display: flex;
-            font-size: 30px;
-            flex-direction: column;
-            align-items: center;
-            font-family: poppins;
-            border-radius: 30px 30px 30px 0px;
-            box-shadow: 0px 0px 10px 2px #5ed1c9;
-            filter: none;
-            position: relative;
-            top: -13.5em;
-            left: 0.4em;
-            padding-left: 0.5vw;
-            /* height:50rem; */
-            overflow: hidden;
-            width: 2.8rem;
-            background: transparent;
-            text-shadow: #f8f4f6 0px 0px 0px;
-            padding-right: 8px;
-            transition: height 2s ease;
-            cursor: pointer;
-            pointer-events: none;
-
-        }
-
-        .nav_img:hover .menu {
-            visibility: visible;
-            height: 22rem;
-            pointer-events: auto;
-
-        }
+      .nav_img:hover .menu {
+        visibility: visible;
+        height: 22rem;
+        pointer-events: auto;
+      }
 
       .nav_container {
         /* visibility: hidden; */
-        margin-left:-5vw;
+        margin-left: -5vw;
         margin-top: 38vh;
         height: 50vh;
         width: 4vw;
@@ -238,7 +295,7 @@
       .service_logo {
         position: relative;
         display: inline-block;
-        padding-top:2vh;
+        padding-top: 2vh;
       }
 
       .tooltiptext {
@@ -317,10 +374,55 @@
           /* padding-right: 5em;
           margin: 0.5em; */
         }
+        .arrow{
+        height: 3vh;
+        width: 37vw;
+        left: 36vw;
+        top: 130vh;
+        position: relative;
+    }
+        
       }
     </style>
   </head>
   <body>
+<script>
+  
+  function expandCard(card) {
+    // Blur all cards
+    document.querySelectorAll('.card').forEach(c => {
+      c.classList.add('blur');
+    });
+
+    // Create expanded card element
+    const expanded = document.createElement('div');
+    expanded.classList.add('expanded-card');
+
+    const content = `
+      <button class="close-btn" onclick="closeCard(this)">✖</button>
+      <div class="icon">${card.querySelector('.icon').innerHTML}</div>
+      <h3>${card.querySelector('h3').innerText}</h3>
+      <p>${card.querySelector('.summary').innerText}</p>
+      <div style="margin-top: 15px; color: #555;">
+        ${card.getAttribute('data-content')}
+      </div>
+    `;
+    expanded.innerHTML = content;
+
+    document.body.appendChild(expanded);
+  }
+
+  function closeCard(btn) {
+    const expanded = btn.parentElement;
+    expanded.remove();
+    document.querySelectorAll('.card').forEach(c => {
+      c.classList.remove('blur');
+    });
+  }
+</script>
+
+
+
     <section class="features">
       <p class="file_name">SERVICES</p>
       <h2 class="section-title">What I Do</h2>
@@ -379,6 +481,21 @@
           <a href="#" class="learn-more"> →</a>
         </div>
 
+
+       <div class="card" onclick="expandCard(this)" data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
+  <div class="icon">📖</div>
+  <h3>App Development</h3>
+  <p class="summary">
+    It uses a dictionary of over 200 Latin words, combined with a
+    handful of model sentence.
+  </p>
+  <a href="#" class="learn-more"> →</a>
+</div>
+
+
+
+
+
         <div class="card">
           <div class="icon">🌀</div>
           <h3>Personal Portfolio April</h3>
@@ -389,76 +506,75 @@
           <a href="#" class="learn-more"> →</a>
         </div>
       </div>
-          <div class="arrow">
-            <div class="left_arrow">
-                <a href="3-About_me.html"><i class='bx bxs-chevron-left'></i></a>
-            </div>
-            <div class="show_option">
-                <div class="nav_img">
-                    <i class='bx bx-menu-alt-left'></i>
-                    <div class="menu">
-                        <div class="home_logo">
-                            <a href="index.html">
-                                <i class="bx bxs-home">
-                                    <span class="tooltiptext"> HOME</span>
-                                </i>
-                            </a>
-                        </div>
-                        <div class="About_me_logo">
-                            <a href="3-About_me.html">
-                                <i class="bx bxs-user">
-                                    <span class="tooltiptext"> ABOUT ME</span>
-                                </i>
-                            </a>
-                        </div>
-                        <div class="service_logo">
-                            <a href="4-service.html">
-                                <i class='bx bxs-cog'>
-                                    <span class="tooltiptext">MY SERVICE </span>
-                                </i>
-                            </a>
-                        </div>
-                        <div class="projects_logo">
-                            <a href="5-portfolio.html">
-                                <i class="bx bxs-briefcase">
-                                    <span class="tooltiptext"> PORTFOLIO</span>
-                                </i>
-                            </a>
-                        </div>
-                        <div class="testimonials_logo">
-                            <a href="6-testimonials.html">
-                              <i class="bx bx-podcast">
-                                <span class="tooltiptext">
-                                  TESTIMONIALS
-                                </span>
-                              </i> 
-                            </a>
-                        </div>
-                        <div class="blog_logo">
-                            <a href="7-blog.html">
-                              <i class="bx bxl-blogger">
-                                <span class="tooltiptext"> 
-                                  BLOGS & NEWS
-                                </span>
-                              </i> 
-                            </a>
-                        </div>
-
-                        <div class="Contactme_logo">
-                            <a href="8-contact.html"><i class="bx bx-support">
-                                    <span class="tooltiptext">CONTACT </span>
-                                </i> </a>
-                        </div>
-                    </div>
-                    <!-- </i> -->
-                </div>
-
-            </div>
-            <div class="right_arrow"><a href="5-portfolio.html"><i class='bx bxs-chevron-right'></i></a>
-            </div>
+    
+      <div class="arrow">
+        <div class="left_arrow">
+          <a href="3-About_me.html"><i class="bx bxs-chevron-left"></i></a>
         </div>
+        <div class="show_option">
+          <div class="nav_img">
+            <i class="bx bx-menu-alt-left"></i>
+            <div class="menu">
+              <div class="home_logo">
+                <a href="index.html">
+                  <i class="bx bxs-home">
+                    <span class="tooltiptext"> HOME</span>
+                  </i>
+                </a>
+              </div>
+              <div class="About_me_logo">
+                <a href="3-About_me.html">
+                  <i class="bx bxs-user">
+                    <span class="tooltiptext"> ABOUT ME</span>
+                  </i>
+                </a>
+              </div>
+              <div class="service_logo">
+                <a href="4-service.html">
+                  <i class="bx bxs-cog">
+                    <span class="tooltiptext">MY SERVICE </span>
+                  </i>
+                </a>
+              </div>
+              <div class="projects_logo">
+                <a href="5-portfolio.html">
+                  <i class="bx bxs-briefcase">
+                    <span class="tooltiptext"> PORTFOLIO</span>
+                  </i>
+                </a>
+              </div>
+              <div class="testimonials_logo">
+                <a href="6-testimonials.html">
+                  <i class="bx bx-podcast">
+                    <span class="tooltiptext"> TESTIMONIALS </span>
+                  </i>
+                </a>
+              </div>
+              <div class="blog_logo">
+                <a href="7-blog.html">
+                  <i class="bx bxl-blogger">
+                    <span class="tooltiptext"> BLOGS & NEWS </span>
+                  </i>
+                </a>
+              </div>
 
-    </section>
+              <div class="Contactme_logo">
+                <a href="8-contact.html"
+                  ><i class="bx bx-support">
+                    <span class="tooltiptext">CONTACT </span>
+                  </i>
+                </a>
+              </div>
+            </div>
+            <!-- </i> -->
+          </div>
+        </div>
+        <div class="right_arrow">
+          <a href="5-portfolio.html"><i class="bx bxs-chevron-right"></i></a>
+        </div>
+      </div>
+       </section> 
+    
     <!-- <div class="nav_container">
     <div class="home_logo">
       <a href="2-home.html"> <i class="bx bxs-home">
