@@ -1150,7 +1150,7 @@ p {
     border: none;
     padding: 2vh 3vw;
     /* width: 0%; */
-    height:160vw;
+    height:165vw;
     margin:4vw;
     background-color: linear-gradient(108.98deg, hsla(0, 0%, 100%, .1), hsla(0, 0%, 100%, .1));
   }
@@ -1166,6 +1166,12 @@ p {
   } 
   .email{
     width: 75vw;
+    top:-1.5vh;
+    position: relative;
+  }
+  .connect_with_me{
+    top:-4vh;
+    position: relative;
   }
   .profile_pic{
     top:-3vh;
@@ -1190,7 +1196,7 @@ p {
 
   .arrow {
         position: absolute;
-        bottom: -60vw;
+        bottom: -56vw;
         left: 57vw;
         width: 30vw;
         height:5.3vh;
@@ -1349,11 +1355,11 @@ p {
     // Check and apply saved theme
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "light") {
-      body.classList.add("light-mode");
-      toggle.checked = true;
-    } else {
       body.classList.remove("light-mode");
       toggle.checked = false;
+    } else {
+      body.classList.add("light-mode");
+      toggle.checked = true;
     }
 
     // Listen for toggle change
