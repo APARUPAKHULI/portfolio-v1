@@ -76,6 +76,8 @@ body.light-mode  .bubble_set{
 body:not(.light-mode) {
   background: #181818;
   color: #f2f2f2;
+overflow: hidden;
+  
 }
 
 body:not(.light-mode) .homepage,
@@ -83,9 +85,25 @@ body:not(.light-mode) .button,
 body:not(.light-mode) .i,
 body:not(.light-mode) .nav_container,
 body:not(.light-mode) .bubble_set {
+  
   background-color: transparent;   
   color: #f2f2f2;
-  box-shadow: 0 0 20px 2px #000a;
+  box-shadow:  0 0 20px 2px rgba(108, 107, 107, 0.667);
+  
+}
+body:not(.light-mode) .homepage_starting_section {
+  border:2px solid #616262;
+}
+body:not(.light-mode) .homepage{
+  border:2px solid #616262;
+}
+body:not(.light-mode) .bubble{
+  display:none;
+}
+body:not(.light-mode) .profile_pic{
+  border:none;
+  box-shadow: 0px 0px 20px 12px #a2a1a1, 0 0px 20px 0px rgb(124 251 255);
+}
 }
 
 body:not(.light-mode) .main_container_name,
@@ -111,6 +129,45 @@ body:not(.light-mode) .bubble span:nth-child(3) { border-top: 15px solid rgb(249
 body:not(.light-mode) .bubble span:nth-child(4) { border-left: 15px solid rgb(253, 203, 253); }
 body:not(.light-mode) .bubble span:nth-child(5) { border-bottom: 10px solid #fff; }
 
+canvas{
+  display: block;
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+canvas#stars {
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: -10; /* Behind everything */
+  pointer-events: none;
+  display: block;
+  opacity: 0.9;
+}
+body.light-mode canvas#stars{
+  opacity: 0;
+}
+
+  body.light-mode .half-sphere-bg {
+    display:none;}
+  .half-sphere-bg {
+
+  position: fixed;
+  border-radius:40% ;
+  left: -100px;
+  bottom: -12vh;
+  width: 120vw;
+  height: 60vh;
+  pointer-events: none;
+  z-index: -9;
+  box-shadow:inset 0px 0px 20px 20px rgb(68, 67, 67);  background: radial-gradient(ellipse at center , #181818 70%, transparent 100%);
+}
+
+
 
 
 
@@ -124,6 +181,7 @@ body:not(.light-mode) .bubble span:nth-child(5) { border-bottom: 10px solid #fff
   border-radius: 5vh;
   border: 2px solid #b1f7f9;
   box-shadow: #309da0 0px 0px 20px 2px;
+
 }
 
 .homepage_starting_section {
@@ -1203,13 +1261,13 @@ p {
   }
 
   .arrow {
-        position: absolute;
-        bottom: -73vw;
-        left: 60vw;
-        width: 30vw;
-        height:5.3vh;
-        text-align: center;
-        justify-content: center;
+    position: absolute;
+    bottom: -73vw;
+    left: 60vw;
+    width: 30vw;
+    height:5.3vh;
+    text-align: center;
+    justify-content: center;
   }
 
   .left_arrow , .show_option , .right_arrow{
@@ -1224,17 +1282,15 @@ p {
 
   </style>
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=manufacturing" />
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=manufacturing"/>
 </head>
 
 <body>
-
-
-
+  <div class="half-sphere-bg"></div>
   <script src="script.js"></script>
+  <canvas id="stars"></canvas>
   <div class="homepage">
   <div class="homepage_starting_section">
-
       <!-- From Uiverse.io by rishichawda --> 
 <label id="theme-toggle-button">
   <input type="checkbox" id="toggle">
@@ -1258,7 +1314,8 @@ p {
           <circle fill="#fcf4b9" transform="translate(8.167 8.167)" r="7" cy="7" cx="7" id="sun-inner"></circle>
         </g>
         
-          
+        
+
         <g data-name="moon" id="moon">
           <g filter="url(#moon)" transform="matrix(1, 0, 0, 1, -31.5, -5.83)">
             <circle fill="#cce6ee" transform="translate(31.5 5.83)" r="15.167" cy="15.167" cx="15.167" data-name="moon" id="moon-3"></circle>
@@ -1294,8 +1351,7 @@ p {
   </svg>
 </label>
 
- 
-      <img src="img dp.jpg" class="profile_pic" alt="" />
+      <img src="img dp.jpg" class="profile_pic" alt="img of APARUPAKHULI" />
       <h1 class="name">Aparup Akhuli</h1> 
       <p class="frontend_developer">Front-end Developer</p>
       <div class="my_profiles">
@@ -1320,6 +1376,50 @@ p {
     </div>
 
     <script>
+
+  const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const stars = [];
+for (let i = 0; i < 200; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 1.5,
+    speed: Math.random() * 0.3
+  });
+}
+
+function drawStars() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = 'white';
+  stars.forEach(star => {
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.fill();
+
+    star.y += star.speed;
+    if (star.y > canvas.height) {
+      star.y = 0;
+      star.x = Math.random() * canvas.width;
+    }
+  });
+
+  requestAnimationFrame(drawStars);
+}
+
+drawStars();
+
+
+
+
   const form = document.getElementById("contact-form");
 
   form.addEventListener("submit", async function (e) {
@@ -1353,9 +1453,6 @@ p {
   });
 
 
-
- 
-
   window.addEventListener("DOMContentLoaded", () => {
     const toggle = document.getElementById("toggle");
     const body = document.body;
@@ -1385,7 +1482,7 @@ p {
 
 
 
-</script>
+
 
     <div class="main_container">
       <div class="main_container_name">
