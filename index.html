@@ -1199,6 +1199,18 @@ p {
 
 
 @media (max-width:450px) {
+    .half-sphere-bg {
+
+  position: fixed;
+  border-radius:40% ;
+  left: -50px;
+  bottom: -25vh;
+  width: 120vw;
+  height: 60vh;
+  pointer-events: none;
+  z-index: -9;
+  box-shadow:inset 0px 0px 20px 20px rgb(68, 67, 67);  background: radial-gradient(ellipse at center , #181818 70%, transparent 100%);
+}
   .homepage{
     height:100%;
     width: 100%;
@@ -1212,6 +1224,9 @@ p {
     margin:4vw;
     background-color: linear-gradient(108.98deg, hsla(0, 0%, 100%, .1), hsla(0, 0%, 100%, .1));
   }
+  body:not(.light-mode) .homepage_starting_section {
+  border:none;
+}
 #theme-toggle-button{
   top:-3em;
   left:20em;
