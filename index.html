@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="red">
   <title>portfolio website</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css"
     integrity="sha512-DJLNx+VLY4aEiEQFjiawXaiceujj5GA7lIY8CHCIGQCBPfsEG0nGz1edb4Jvw1LR7q031zS5PpPqFuPA8ihlRA=="
@@ -1408,7 +1407,7 @@ for (let i = 0; i < 200; i++) {
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
     radius: Math.random() * 1.5,
-    speed: Math.random() * 0.3
+    speed: Math.random() * 0.1
   });
 }
 
@@ -1475,11 +1474,12 @@ drawStars();
     // Check and apply saved theme
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
+      body.classList.add("light-mode");
+      
+      toggle.checked = true;
+    } else {
       body.classList.remove("light-mode");
       toggle.checked = false;
-    } else {
-      body.classList.add("light-mode");
-      toggle.checked = true;
     }
 
     // Listen for toggle change
@@ -1493,6 +1493,24 @@ drawStars();
       }
     });
   });
+
+function updateThemeColor() {
+  const metaThemeColor = document.getElementById('theme-color-meta');
+  if (document.body.classList.contains('light-mode')) {
+    metaThemeColor.setAttribute('content', '#b3f0ff'); // Light theme color
+  } else {
+    metaThemeColor.setAttribute('content', '#181818'); // Dark theme color
+  }
+}
+
+// Call on load and on theme change
+window.addEventListener("DOMContentLoaded", () => {
+  // ...your existing theme toggle code...
+  updateThemeColor();
+  document.getElementById('toggle').addEventListener('change', updateThemeColor);
+});
+
+
 </script>
 
 

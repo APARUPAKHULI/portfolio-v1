@@ -26,7 +26,7 @@
                     rgba(238, 174, 202, 1) 0%,
                     rgba(148, 233, 229, 1) 57%);
             color: white;
-            margin:0;
+            margin: 0;
             margin-left: 87px;
             margin-right: 87px;
             /*padding-left: 4.69vw;
@@ -86,8 +86,8 @@
             max-width: 1200px;
             margin: auto;
             text-align: left;
-            margin-left: 87px;
-            margin-right: 87px;
+            /* margin-left: 87px;
+            margin-right: 87px; */
 
         }
 
@@ -109,31 +109,30 @@
             margin-top: 30px;
         }
 
-       
+
         .contact-form {
             flex: 1;
             /* margin-top:-80px; */
             min-width: 300px;
-           
-            
+
+
         }
-        .contact-info{
-            flex:1;
+
+        .contact-info {
+            flex: 1;
             /* display:flex;
             flex-flow: row; */
             display: grid;
-            column-gap:20px;
-            grid-template-columns: repeat(2,1fr);
-            
+            column-gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+
         }
 
         .info-card {
-            
-            background:linear-gradient(
-          to top,
-          rgba(238, 174, 202, 1) 0%,
-          rgba(148, 233, 229, 1) 57%
-        );
+
+            background: linear-gradient(to top,
+                    rgba(238, 174, 202, 1) 0%,
+                    rgba(148, 233, 229, 1) 57%);
             padding: 20px;
             padding-bottom: -50px;
             border-radius: 10px;
@@ -142,15 +141,16 @@
             /* display:flex; */
             box-shadow: -2px -2px 2px 0px #9acbc9;
         }
-        .info-card:hover{
-    
-           box-shadow: inset 1px 1px 5px 0px #8bb8b6;
+
+        .info-card:hover {
+
+            box-shadow: inset 1px 1px 5px 0px #8bb8b6;
         }
 
         .info-card h4 {
-    margin: 0 0 10px;
-    font-size: 25px;
-    font-weight: 800;
+            margin: 0 0 10px;
+            font-size: 25px;
+            font-weight: 800;
         }
 
         .form-group {
@@ -167,32 +167,29 @@
             background: transparent;
             /* filter: blur(2px); */
             color: white;
-            border:2px solid #80d9d9;
+            border: 2px solid #80d9d9;
             /* box-shadow: inset 0px 0px 2px 0px  #04eded ; */
         }
-        
+
 
         .btn {
-        background:linear-gradient(
-          to top,
-          rgba(238, 174, 202, 1) 0%,
-          rgba(148, 233, 229, 1) 57%
-        );
+            background: linear-gradient(to top,
+                    rgba(238, 174, 202, 1) 0%,
+                    rgba(148, 233, 229, 1) 57%);
             padding: 12px 25px;
             color: white;
             border: none;
             border-radius: 25px;
             cursor: pointer;
-            width: 40vw;
-            margin-left: -30px;
-            
+            width: 37vw;
+            margin-left: 10px;
+
         }
+
         .btn1 {
-        background:linear-gradient(
-          to top,
-          rgba(238, 174, 202, 1) 0%,
-          rgba(148, 233, 229, 1) 57%
-        );
+            background: linear-gradient(to top,
+                    rgba(238, 174, 202, 1) 0%,
+                    rgba(148, 233, 229, 1) 57%);
             padding: 12px 25px;
             color: white;
             border: none;
@@ -200,7 +197,7 @@
             cursor: pointer;
             width: 25vw;
             /* margin-left: -30px; */
-            
+
         }
 
         .map-section iframe {
@@ -253,6 +250,39 @@
             font-weight: bold;
             font-size: 20px;
         }
+
+        /* responsive */
+        @media (max-width: 768px) {
+            body {
+                margin: 0;
+            }
+
+            .container {
+
+                margin-left: 60px;
+                margin-right: 60px;
+
+            }
+
+            #contact-form1 {
+                margin-left: -20px;
+            }
+
+            .btn {
+                width: 73vw;
+            }
+            span.subtitle {
+                padding-top: 15px;
+            }
+
+            .contact-grid {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .contact-info {
+                grid-template-columns: none;
+            }
     </style>
 </head>
 
@@ -268,29 +298,29 @@
     </div> -->
 
     <div class="container">
-       
+
 
         <div class="contact-grid">
             <div class="contact-info">
                 <div class="info-card">
                     <h4><i class='bx bx-map'></i>
-                         Location</h4>
-                    <p>Aparup Akhuli's home, Bisinda,  Gangajal Ghati, Bankura-722133</p>
+                        Location</h4>
+                    <p>Aparup Akhuli's home, Bisinda, Gangajal Ghati, Bankura-722133</p>
                 </div>
                 <div class="info-card">
                     <h4><i class='bx bx-phone'></i> Phone</h4>
                     <p>+91 9339 76 9647</p>
                 </div>
                 <div class="info-card">
-                    <h4><i class='bx bx-envelope' ></i> Email</h4>
+                    <h4><i class='bx bx-envelope'></i> Email</h4>
                     <p>aparupakhuli11@gmail.com<br>aparupakhuli.cts.@gmail.com</p>
                 </div>
                 <div class="info-card">
-                    <h4><i class='bx bx-envelope' ></i> Email</h4>
+                    <h4><i class='bx bx-envelope'></i> Email </h4>
                     <p>aparupakhuli11@gmail.com<br>aparupakhuli.cts.@gmail.com</p>
                 </div>
                 <div class="info-card">
-                    <h4><i class='bx bx-envelope' ></i> Email</h4>
+                    <h4><i class='bx bx-envelope'></i> Email</h4>
                     <p>aparupakhuli11@gmail.com<br>aparupakhuli.cts.@gmail.com</p>
                 </div>
                 <div class="info-card">
@@ -299,40 +329,44 @@
                 </div>
             </div>
             <form id="contact-form1">
-                 <p class="section-title">Get In Touch</p>
-        <h2>Got Any Questions or Idea?</h2>
-        <p> I’m always open to new projects and collaborations. Drop a message and I’ll get back to you soon!</p>
-  <div class="contact-form">
-    <div class="form-group">
-      <input type="text" name="name" placeholder="Your Name*" required>
-    </div>
-    <div class="form-group">
-      <input type="email" name="email" placeholder="Your Email*" required>
-    </div>
-    <div class="form-group">
-      <input type="text" name="subject" placeholder="Subject*" required>
-    </div>
-    <div class="form-group">
-      <textarea name="message" rows="7" placeholder="Message" required></textarea>
-    </div>
-    <button class="btn" type="submit">Send Message</button>
-  </div>
-</form>
+                <p class="section-title">Get In Touch</p>
+                <h2>Got Any Questions or Idea?</h2>
+                <p> I’m always open to new projects and collaborations. Drop a message and I’ll get back to you soon!
+                </p>
+                <div class="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name*" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email*" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject*" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="7" placeholder="Message" required></textarea>
+                    </div>
+                    <button class="btn" type="submit">Send Message</button>
+                </div>
+            </form>
 
         </div>
 
         <div class="map-section">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d869.7443650803535!2d87.0533848695714!3d23.45776199867943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f7053dc2f3e5af%3A0x36c94417f3d7bb59!2sAparup%20Akhuli&#39;s%20home!5e1!3m2!1sen!2sin!4v1746338900506!5m2!1sen!2sin" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d869.7443650803535!2d87.0533848695714!3d23.45776199867943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f7053dc2f3e5af%3A0x36c94417f3d7bb59!2sAparup%20Akhuli&#39;s%20home!5e1!3m2!1sen!2sin!4v1746338900506!5m2!1sen!2sin"
+                width="600" height="450" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-<form id="newsletter-form">
-  <div class="newsletter">
-    <p class="section-title">Our Newsletter</p>
-    <h2>Subscribe And Ask For Free</h2>
-    <p>Let's discuss about your new Idea...</p>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <button type="submit" class="btn1">Subscribe</button>
-  </div>
-</form>
+        <form id="newsletter-form">
+            <div class="newsletter">
+                <p class="section-title">Our Newsletter</p>
+                <h2>Subscribe And Ask For Free</h2>
+                <p>Let's discuss about your new Idea... </p>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <button type="submit" class="btn1">Subscribe</button>
+            </div>
+        </form>
     </div>
 
     <!-- <footer>
@@ -369,62 +403,62 @@
         </div>
     </footer> -->
 
-<script>
-  // Handle newsletter form6x
-  const newsletterForm = document.getElementById("newsletter-form");
+    <script>
+        // Handle newsletter form6x
+        const newsletterForm = document.getElementById("newsletter-form");
 
-  newsletterForm.addEventListener("submit", async function (e) {
-    e.preventDefault();
+        newsletterForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
 
-    const email = newsletterForm.elements["email"].value;
+            const email = newsletterForm.elements["email"].value;
 
-    const response = await fetch("https://formspree.io/f/mzzvbevw", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({ email })
-    });
+            const response = await fetch("https://formspree.io/f/mzzvbevw", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({ email })
+            });
 
-    if (response.ok) {
-      alert("Subscribed successfully!");
-      newsletterForm.reset();
-    } else {
-      alert("Subscription failed. Try again later.");
-    }
-  });
+            if (response.ok) {
+                alert("Subscribed successfully!");
+                newsletterForm.reset();
+            } else {
+                alert("Subscription failed. Try again later.");
+            }
+        });
 
-  // Handle contact form
-  const contactForm = document.getElementById("contact-form1");
+        // Handle contact form
+        const contactForm = document.getElementById("contact-form1");
 
-  contactForm.addEventListener("submit", async function (e) {
-    e.preventDefault();
+        contactForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
 
-    const data = {
-      name: contactForm.elements["name"].value,
-      email: contactForm.elements["email"].value,
-      subject: contactForm.elements["subject"].value,
-      message: contactForm.elements["message"].value
-    };
+            const data = {
+                name: contactForm.elements["name"].value,
+                email: contactForm.elements["email"].value,
+                subject: contactForm.elements["subject"].value,
+                message: contactForm.elements["message"].value
+            };
 
-    const response = await fetch("https://formspree.io/f/myzpyevb", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(data)
-    });
+            const response = await fetch("https://formspree.io/f/myzpyevb", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
 
-    if (response.ok) {
-      alert("Message sent successfully!");
-      contactForm.reset();
-    } else {
-      alert("Message failed to send. Try again later.");
-    }
-  });
-</script>
+            if (response.ok) {
+                alert("Message sent successfully!");
+                contactForm.reset();
+            } else {
+                alert("Message failed to send. Try again later.");
+            }
+        });
+    </script>
 
 
 

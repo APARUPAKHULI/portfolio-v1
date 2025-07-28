@@ -109,7 +109,7 @@
         margin-top: 15px;
       }
 
-      .card:hover  {
+      .card:hover {
         transform: translateY(-10px);
         box-shadow: 0 10px 20px rgba(255, 0, 100, 0.4);
       }
@@ -138,67 +138,61 @@
         transform: translateX(100px);
       }
 
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        position: relative;
+      }
 
-    .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  position: relative;
-}
+      .card {
+        width: 250px;
+        padding: 20px;
+        border-radius: 10px;
+        background: white;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+      }
 
-.card {
-  width: 250px;
-  padding: 20px;
-  border-radius: 10px;
-  background: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
-}
+      .card .learn-more {
+        font-size: 20px;
+        text-decoration: none;
+        margin-top: 10px;
+        display: inline-block;
+      }
 
-.card .learn-more {
-  font-size: 20px;
-  text-decoration: none;
-  margin-top: 10px;
-  display: inline-block;
-}
+      .blur {
+        filter: blur(5px);
+        pointer-events: none;
+      }
 
-.blur {
-  filter: blur(5px);
-  pointer-events: none;
-}
+      .expanded-card {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 90%;
+        max-width: 600px;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+      }
 
-.expanded-card {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 90%;
-  max-width: 600px;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-}
-
-.expanded-card .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 20px;
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-
-
-
-
-
+      .expanded-card .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
 
       .arrow {
         display: flex;
@@ -209,8 +203,8 @@
         backdrop-filter: blur(20px);
         border-radius: 25px;
         position: relative;
-        left: 76vw;
-        top: 15vh;
+        left: 65vw;
+        top: -5vh;
         font-size: 50px;
         background: -webkit-linear-gradient(#12e2d8, #f772b0);
         background-clip: text;
@@ -374,61 +368,57 @@
           /* padding-right: 5em;
           margin: 0.5em; */
         }
-        .arrow{
-        height: 3vh;
-        width: 37vw;
-        left: 36vw;
-        top: 130vh;
-        position: relative;
-    }
-        
+        .arrow {
+          height: 3vh;
+          width: 37vw;
+          left: 36vw;
+          top: 130vh;
+          position: relative;
+        }
       }
     </style>
   </head>
   <body>
-<script>
-  
-  function expandCard(card) {
-    // Blur all cards
-    document.querySelectorAll('.card').forEach(c => {
-      c.classList.add('blur');
-    });
+    <script>
+      function expandCard(card) {
+        // Blur all cards
+        document.querySelectorAll(".card").forEach((c) => {
+          c.classList.add("blur");
+        });
 
-    // Create expanded card element
-    const expanded = document.createElement('div');
-    expanded.classList.add('expanded-card');
+        // Create expanded card element
+        const expanded = document.createElement("div");
+        expanded.classList.add("expanded-card");
 
-    const content = `
+        const content = `
       <button class="close-btn" onclick="closeCard(this)">✖</button>
-      <div class="icon">${card.querySelector('.icon').innerHTML}</div>
-      <h3>${card.querySelector('h3').innerText}</h3>
-      <p>${card.querySelector('.summary').innerText}</p>
+      <div class="icon">${card.querySelector(".icon").innerHTML}</div>
+      <h3>${card.querySelector("h3").innerText}</h3>
+      <p>${card.querySelector(".summary").innerText}</p>
       <div style="margin-top: 15px; color: #555;">
-        ${card.getAttribute('data-content')}
+        ${card.getAttribute("data-content")}
       </div>
     `;
-    expanded.innerHTML = content;
+        expanded.innerHTML = content;
 
-    document.body.appendChild(expanded);
-  }
+        document.body.appendChild(expanded);
+      }
 
-  function closeCard(btn) {
-    const expanded = btn.parentElement;
-    expanded.remove();
-    document.querySelectorAll('.card').forEach(c => {
-      c.classList.remove('blur');
-    });
-  }
-</script>
-
-
+      function closeCard(btn) {
+        const expanded = btn.parentElement;
+        expanded.remove();
+        document.querySelectorAll(".card").forEach((c) => {
+          c.classList.remove("blur");
+        });
+      }
+    </script>
 
     <section class="features">
       <p class="file_name">SERVICES</p>
-      <h2 class="section-title">What I Do</h2>
+      <h2 class="section-title">How I Can Help </h2>
       <div class="grid-container">
         <!-- <input type="checkbox" class="toggle_card"> -->
-        <div class="card">
+        <!-- <div class="card">
           <div class="icon">☰</div>
           <h3>Business Strategy</h3>
           <p>
@@ -439,9 +429,9 @@
           <!-- <div class="card_details">
             hello world
           </div> -->
-        </div>
+        <!-- </div> -->
 
-        <div class="card">
+        <!-- <div class="card">
           <div class="icon">📖</div>
           <h3>App Development</h3>
           <p>
@@ -459,9 +449,9 @@
             close to the earth.
           </p>
           <a href="#" class="learn-more"> →</a>
-        </div>
+        </div> -->
 
-        <div class="card">
+        <!-- <div class="card">
           <div class="icon">💬</div>
           <h3>Mobile App</h3>
           <p>
@@ -479,24 +469,69 @@
             words etc.
           </p>
           <a href="#" class="learn-more"> →</a>
+        </div> -->
+
+        <div class="card" onclick="expandCard(this)" data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
+          <div class="icon">📖</div>
+          <h3>Web Development</h3>
+          <p class="summary">
+            It uses a dictionary of over 200 Latin words, combined with a
+            handful of model sentence.
+          </p>
+          <a href="#" class="learn-more"> →</a>
         </div>
 
+        <div class="card" onclick="expandCard(this)" data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
+          <div class="icon">📖</div>
+          <h3>Mobile App Development</h3>
+          <p class="summary">
+            It uses a dictionary of over 200 Latin words, combined with a
+            handful of model sentence.
+          </p>
+          <a href="#" class="learn-more"> →</a>
+        </div>
 
-       <div class="card" onclick="expandCard(this)" data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
-  <div class="icon">📖</div>
-  <h3>App Development</h3>
-  <p class="summary">
-    It uses a dictionary of over 200 Latin words, combined with a
-    handful of model sentence.
-  </p>
-  <a href="#" class="learn-more"> →</a>
-</div>
+        <div class="card" onclick="expandCard(this)" data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
+          <div class="icon">📖</div>
+          <h3>UI/UX Design</h3>
+          <p class="summary">
+            It uses a dictionary of over 200 Latin words, combined with a
+            handful of model sentence.
+          </p>
+          <a href="#" class="learn-more"> →</a>
+        </div>
 
+        <div class="card" onclick="expandCard(this)" data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
+          <div class="icon">📖</div>
+          <h3>Full-Stack Development</h3>
+          <p class="summary">
+            It uses a dictionary of over 200 Latin words, combined with a
+            handful of model sentence.
+          </p>
+          <a href="#" class="learn-more"> →</a>
+        </div>
 
+        <div class="card" background="'" onclick="expandCard(this)" data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
+          <div class="icon">📖</div>
+          <h3>App Development</h3>
+          <p class="summary">
+            It uses a dictionary of over 200 Latin words, combined with a
+            handful of model sentence.
+          </p>
+          <a href="#" class="learn-more"> →</a>
+        </div>
 
+        <div class="card" onclick="expandCard(this)" data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
+          <div class="icon">📖</div>
+          <h3>App Development</h3>
+          <p class="summary">
+            It uses a dictionary of over 200 Latin words, combined with a
+            handful of model sentence.
+          </p>
+          <a href="#" class="learn-more"> →</a>
+        </div>
 
-
-        <div class="card">
+        <!-- <div class="card">
           <div class="icon">🌀</div>
           <h3>Personal Portfolio April</h3>
           <p>
@@ -505,8 +540,8 @@
           </p>
           <a href="#" class="learn-more"> →</a>
         </div>
-      </div>
-    
+      </div> -->
+
       <div class="arrow">
         <div class="left_arrow">
           <a href="3-About_me.html"><i class="bx bxs-chevron-left"></i></a>
@@ -573,8 +608,8 @@
           <a href="5-portfolio.html"><i class="bx bxs-chevron-right"></i></a>
         </div>
       </div>
-       </section> 
-    
+    </section>
+
     <!-- <div class="nav_container">
     <div class="home_logo">
       <a href="2-home.html"> <i class="bx bxs-home">
