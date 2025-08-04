@@ -251,6 +251,168 @@
             font-size: 20px;
         }
 
+        .arrow {
+      display: flex;
+      width: 10vw;
+      height: 6.4vh;
+      /* border: 3px solid #b1f7f9; */
+      box-shadow: 0px 0px 18px 1px #e8feff;
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      position: relative;
+      left: 57vw;
+      top: -0vh;
+      font-size: 50px;
+      background: -webkit-linear-gradient(#12e2d8, #f772b0);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      z-index: 1;
+    }
+
+    .left_arrow,
+    .show_option,
+    .right_arrow {
+      margin-top: -2px;
+    }
+
+    .nav_img {
+      display: inline-block;
+      pointer-events: auto;
+      height: 100px;
+    }
+
+    .menu {
+      visibility: hidden;
+      display: flex;
+      font-size: 30px;
+      flex-direction: column;
+      align-items: center;
+      font-family: poppins;
+      border-radius: 30px 30px 30px 0px;
+      box-shadow: 0px 0px 10px 2px #5ed1c9;
+      filter: none;
+      position: relative;
+      top: -13.5em;
+      left: 0.4em;
+      padding-left: 0.5vw;
+      /* height:50rem; */
+      overflow: hidden;
+      width: 2.8rem;
+      background: transparent;
+      text-shadow: #f8f4f6 0px 0px 0px;
+      padding-right: 8px;
+      transition: height 2s ease;
+      cursor: pointer;
+      pointer-events: none;
+    }
+
+    .nav_img:hover .menu {
+      visibility: visible;
+      height: 22rem;
+      pointer-events: auto;
+    }
+
+    .nav_container {
+      /* visibility: hidden; */
+      margin-left: -5vw;
+      margin-top: 38vh;
+      height: 50vh;
+      width: 4vw;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      border: 3px solid hsla(0, 0%, 100%, 0.18);
+      background: linear-gradient(108.98deg,
+          hsla(0, 0%, 100%, 0.208),
+          hsla(0, 0%, 100%, 0.052));
+      -webkit-backdrop-filter: blur(25px);
+      backdrop-filter: blur(25px);
+      box-shadow: 0px 0px 20px 2px #309da0;
+      border-radius: 30px;
+      font-size: 2vw;
+      pointer-events: none;
+    }
+
+    .home_logo,
+    .About_me_logo,
+    .projects_logo,
+    .blog_logo,
+    .podcast_logo,
+    .Contactme_logo,
+    .service_logo {
+      position: relative;
+      display: inline-block;
+      padding-top: 2vh;
+    }
+
+    .tooltiptext {
+      font-family: poppins;
+      font-size: 15px;
+      visibility: hidden;
+      max-width: 200px;
+      background-color: rgb(224, 227, 224);
+      box-shadow: 0px 0px 20px 0px rgb(255, 254, 254);
+      background: blur;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 3px 3px;
+      position: absolute;
+      z-index: 1;
+      right: 150%;
+      /* border :2px solid rgb(188, 254, 248); */
+    }
+
+    .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 28%;
+      left: 165%;
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent rgb(0, 141, 129) transparent transparent;
+    }
+
+    .tooltiptext::before {
+      content: "";
+      position: absolute;
+      top: 28%;
+      left: 105%;
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent transparent transparent rgb(0, 141, 129);
+    }
+
+    .home_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .About_me_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .service_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .projects_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .blog_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .podcast_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .Contactme_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
         /* responsive */
         @media (max-width: 768px) {
             body {
@@ -316,16 +478,16 @@
                     <p>aparupakhuli11@gmail.com<br>aparupakhuli.cts.@gmail.com</p>
                 </div>
                 <div class="info-card">
-                    <h4><i class='bx bx-envelope'></i> Email </h4>
-                    <p>aparupakhuli11@gmail.com<br>aparupakhuli.cts.@gmail.com</p>
+                    <h4><i class='bx bx-envelope'></i> Github </h4>
+                    <p> https://github.com/APARUPAKHULI </p>
                 </div>
                 <div class="info-card">
-                    <h4><i class='bx bx-envelope'></i> Email</h4>
-                    <p>aparupakhuli11@gmail.com<br>aparupakhuli.cts.@gmail.com</p>
+                    <h4><i class='bx bx-envelope'></i> Linkedin</h4>
+                    <p> https://www.linkedin.com/in/aparup-akhuli </p>
                 </div>
                 <div class="info-card">
-                    <h4>📠 Fax</h4>
-                    <p>1260-0219 / 1260-0822</p>
+                    <h4>Twitter</h4>
+                    <p>https://x.com/AparupAkhuli</p>
                 </div>
             </div>
             <form id="contact-form1">
@@ -367,6 +529,71 @@
                 <button type="submit" class="btn1">Subscribe</button>
             </div>
         </form>
+        <div class="arrow">
+        <div class="left_arrow">
+          <a href="3-About_me.html"><i class="bx bxs-chevron-left"></i></a>
+        </div>
+        <div class="show_option">
+          <div class="nav_img">
+            <i class="bx bx-menu-alt-left"></i>
+            <div class="menu">
+              <div class="home_logo">
+                <a href="index.html">
+                  <i class="bx bxs-home">
+                    <span class="tooltiptext"> HOME</span>
+                  </i>
+                </a>
+              </div>
+              <div class="About_me_logo">
+                <a href="3-About_me.html">
+                  <i class="bx bxs-user">
+                    <span class="tooltiptext"> ABOUT ME</span>
+                  </i>
+                </a>
+              </div>
+              <div class="service_logo">
+                <a href="4-service.html">
+                  <i class="bx bxs-cog">
+                    <span class="tooltiptext">MY SERVICE </span>
+                  </i>
+                </a>
+              </div>
+              <div class="projects_logo">
+                <a href="5-portfolio.html">
+                  <i class="bx bxs-briefcase">
+                    <span class="tooltiptext"> PORTFOLIO</span>
+                  </i>
+                </a>
+              </div>
+              <div class="testimonials_logo">
+                <a href="6-testimonials.html">
+                  <i class="bx bx-podcast">
+                    <span class="tooltiptext"> TESTIMONIALS </span>
+                  </i>
+                </a>
+              </div>
+              <div class="blog_logo">
+                <a href="7-blog.html">
+                  <i class="bx bxl-blogger">
+                    <span class="tooltiptext"> BLOGS & NEWS </span>
+                  </i>
+                </a>
+              </div>
+
+              <div class="Contactme_logo">
+                <a href="8-contact.html"><i class="bx bx-support">
+                    <span class="tooltiptext">CONTACT </span>
+                  </i>
+                </a>
+              </div>
+            </div>
+            <!-- </i> -->
+          </div>
+        </div>
+        <div class="right_arrow">
+          <a href="5-portfolio.html"><i class="bx bxs-chevron-right"></i></a>
+        </div>
+      </div>
     </div>
 
     <!-- <footer>

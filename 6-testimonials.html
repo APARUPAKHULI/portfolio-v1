@@ -424,33 +424,37 @@
         }
 
         .testimonial-container {
-            width: 100%;
-            max-width: 930px;
+            /* width: 100%; */
+            /* max-width: 930px; */
             overflow: hidden;
             position: relative;
-            /* width: 990px; */
-            margin-top: -5vh;
+            width: 1536px;
+            margin-top: -10vh;
         }
 
         .slider {
             display: flex;
             transition: transform 0.5s ease-in-out;
-            gap:0.5rem;
+            width: 100%;
+            margin-left: 20vh;
 
         }
 
         .testimonial {
-            width: 100%;
-            height: 200%;
+            /* width: 100%; */
+            height: 200%; 
             display: flex;
-            gap: 1.5rem;
+            gap: 1.5rem; 
+            /* margin-left: 8vw; */
             /* background: var(--bg-color); */
             /* border-radius: 20px; */
-            /* padding: 2rem; */
+            padding: 2rem;
             /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
-            align-items: center;
-            margin-top: vh;
-            background: transparent;
+            /* align-items: center; */
+            /* flex-shrink: 0; */
+            /* background: transparent; */
+            /* min-width: 100vw; Each testimonial takes full slider width */
+            /* box-sizing: border-box; */
         }
 
         .card-info {
@@ -497,13 +501,13 @@
 
         .quotation {
             position: relative;
-            top: -8rem;
-            left: 1.9rem;
+            top: -16rem;
+            left: 3rem;
             -webkit-text-stroke: 1px #05d4cd;
             color: transparent;
             opacity: 0.5;
             transform: rotate(180deg);
-            font-size: 100px;
+            font-size:150px;
         }
 
         .card-description {
@@ -512,9 +516,10 @@
             box-shadow: 0px 0px 20px 2px #51b3ae;
             padding: 3vh 6vh 0 6vh;
             text-align: left;
-            margin-left: -95px;
-            margin-top: 17.4vh;
-            margin-right: 25px;
+            margin-left: -8vw;
+            margin-top: 25.4vh;
+            margin-right: 22px;
+            margin-bottom: 3vh;
         }
 
         .card-description .title-area {
@@ -574,17 +579,6 @@
             margin-top: 30px;
             width: 42vw;
         }
-
-
-        
-
-
-
-
-
-
-
-
 
 
 
@@ -688,6 +682,21 @@
             line-height: 1.6;
         }
 
+        .empty >h2{
+            margin-top: 55px;
+            font-size: 30px;
+            -webkit-text-stroke: 1px var(--text-color);
+            color: transparent;
+            opacity: 0.3;
+            text-align: center;
+        }
+        .empty >h1{
+            font-size: 79px;
+            -webkit-text-stroke: 1px #00fff6;
+            color: transparent;
+            opacity: 0.5;
+        }
+
         .arrows {
             position: fixed;
             margin-top: 16.5%;
@@ -700,7 +709,7 @@
             padding: 0 1rem;
         }
 
-        .arrow {
+        .arrow1 {
             background: #94e9e5;
             color: #ff40a5;
             /* padding: 0.5rem 1rem; */
@@ -717,7 +726,7 @@
             margin-top: 1rem;
             position: fixed;
             top: 90vh;
-            left: 94vh;
+            left: 98vh;
         }
 
         .dot {
@@ -739,6 +748,168 @@
             background-color: var(--text-color);
             box-shadow: none;
         }
+
+         .arrow {
+      display: flex;
+      width: 10vw;
+      height: 6.4vh;
+      /* border: 3px solid #b1f7f9; */
+      box-shadow: 0px 0px 18px 1px #e8feff;
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      position: relative;
+      left: 35vw;
+      top: -0vh;
+      font-size: 50px;
+      background: -webkit-linear-gradient(#12e2d8, #f772b0);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      z-index: 1;
+    }
+
+    .left_arrow,
+    .show_option,
+    .right_arrow {
+      margin-top: -2px;
+    }
+
+    .nav_img {
+      display: inline-block;
+      pointer-events: auto;
+      height: 100px;
+    }
+
+    .menu {
+      visibility: hidden;
+      display: flex;
+      font-size: 30px;
+      flex-direction: column;
+      align-items: center;
+      font-family: poppins;
+      border-radius: 30px 30px 30px 0px;
+      box-shadow: 0px 0px 10px 2px #5ed1c9;
+      filter: none;
+      position: relative;
+      top: -13.5em;
+      left: 0.4em;
+      padding-left: 0.5vw;
+      /* height:50rem; */
+      overflow: hidden;
+      width: 2.8rem;
+      background: transparent;
+      text-shadow: #f8f4f6 0px 0px 0px;
+      padding-right: 8px;
+      transition: height 2s ease;
+      cursor: pointer;
+      pointer-events: none;
+    }
+
+    .nav_img:hover .menu {
+      visibility: visible;
+      height: 22rem;
+      pointer-events: auto;
+    }
+
+    .nav_container {
+      /* visibility: hidden; */
+      margin-left: -5vw;
+      margin-top: 38vh;
+      height: 50vh;
+      width: 4vw;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      border: 3px solid hsla(0, 0%, 100%, 0.18);
+      background: linear-gradient(108.98deg,
+          hsla(0, 0%, 100%, 0.208),
+          hsla(0, 0%, 100%, 0.052));
+      -webkit-backdrop-filter: blur(25px);
+      backdrop-filter: blur(25px);
+      box-shadow: 0px 0px 20px 2px #309da0;
+      border-radius: 30px;
+      font-size: 2vw;
+      pointer-events: none;
+    }
+
+    .home_logo,
+    .About_me_logo,
+    .projects_logo,
+    .blog_logo,
+    .podcast_logo,
+    .Contactme_logo,
+    .service_logo {
+      position: relative;
+      display: inline-block;
+      padding-top: 2vh;
+    }
+
+    .tooltiptext {
+      font-family: poppins;
+      font-size: 15px;
+      visibility: hidden;
+      max-width: 200px;
+      background-color: rgb(224, 227, 224);
+      box-shadow: 0px 0px 20px 0px rgb(255, 254, 254);
+      background: blur;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 3px 3px;
+      position: absolute;
+      z-index: 1;
+      right: 150%;
+      /* border :2px solid rgb(188, 254, 248); */
+    }
+
+    .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 28%;
+      left: 165%;
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent rgb(0, 141, 129) transparent transparent;
+    }
+
+    .tooltiptext::before {
+      content: "";
+      position: absolute;
+      top: 28%;
+      left: 105%;
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent transparent transparent rgb(0, 141, 129);
+    }
+
+    .home_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .About_me_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .service_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .projects_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .blog_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .podcast_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .Contactme_logo:hover .tooltiptext {
+      visibility: visible;
+    }
 
         @media ( max-width:768px) {
         .row{
@@ -764,6 +935,9 @@
         /* margin-left: -95px; */
         margin-top: 11.6vh;
         }
+
+
+       
         /* .card-description .seperator:after{
 
         } */
@@ -776,10 +950,13 @@
         <span class="subtitle">What Clients Say</span>
         <h2 class="title">Testimonial</h2>
     </div>
-    <div class="row">
+    <div class="empty">
+        <h2>Not Updated yet...</h2>
+        <h1>Coming soon</h1>
+    </div>
+    <!-- <div class="row">
         <div class="testimonial-container">
             <div class="slider" id="slider">
-                <!-- Repeat for 5 testimonials -->
                 <div class="testimonial">
 
                     <div class="card-info">
@@ -792,7 +969,7 @@
                             <span class="designation">Chief Operating Officer</span>
                         </div>
                     </div>
-                    <div class="quotation"><i class="fa fa-quote-left" style="font-size:100px"></i></div>
+                    <div class="quotation"><i class="fa fa-quote-left" ></i></div>
                     <div class="card-description">
                         <div class="title-area">
                             <div class="title-info">
@@ -830,7 +1007,7 @@
                             <span class="designation">Chief Operating Officer</span>
                         </div>
                     </div>
-                    <div class="quotation"><i class="fa fa-quote-left" style="font-size:78px"></i></div>
+                    <div class="quotation"><i class="fa fa-quote-left" ></i></div>
                     <div class="card-description">
                         <div class="title-area">
                             <div class="title-info">
@@ -869,7 +1046,7 @@
                             <span class="designation">Chief Operating Officer</span>
                         </div>
                     </div>
-                    <div class="quotation"><i class="fa fa-quote-left" style="font-size:78px"></i></div>
+                    <div class="quotation"><i class="fa fa-quote-left" ></i></div>
                     <div class="card-description">
                         <div class="title-area">
                             <div class="title-info">
@@ -909,7 +1086,7 @@
                             <span class="designation">Chief Operating Officer</span>
                         </div>
                     </div>
-                    <div class="quotation"><i class="fa fa-quote-left" style="font-size:78px"></i></div>
+                    <div class="quotation"><i class="fa fa-quote-left" ></i></div>
                     <div class="card-description">
                         <div class="title-area">
                             <div class="title-info">
@@ -950,7 +1127,7 @@
                             <span class="designation">Chief Operating Officer</span>
                         </div>
                     </div>
-                    <div class="quotation"><i class="fa fa-quote-left" style="font-size:78px"></i></div>
+                    <div class="quotation"><i class="fa fa-quote-left" ></i></div>
                     <div class="card-description">
                         <div class="title-area">
                             <div class="title-info">
@@ -978,65 +1155,138 @@
                     </div>
                 </div>
 
-                <!-- <div class="profile">
-                                    <!-- <img src="https://via.placeholder.com/200" alt="profile"> -->
-                <!-- <div class="subtitle">RAINBOW-THEMES</div> -->
-                <!-- <div class="name">Nevine Acotanza</div> -->
-                <!-- <div class="designation">Chief Operating Officer</div> -->
-                <!-- </div>
-                                <div class="description">
-                                    <!-- <h3>Android App Development</h3> -->
-                <!-- <span class="date">via Upwork - Mar 4, 2015 - Aug 30, 2021</span> -->
-                <!-- <div class="stars"> -->
-                <!-- ★ ★ ★ ☆ ☆ -->
-                <!-- </div> -->
-                <!-- <p>Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales. -->
-                <!-- Phasellus -->
-                <!-- sed mauris hendrerit, laoreet sem in, lobortis mauris hendrerit ante.</p> -->
-                <!-- </div> --> --> -->
-                <!-- </div> -->
-
-                <!-- Clone above block 4 more times with different data if needed -->
+            
             </div>
         </div>
-    </div>
-    <div class="arrows">
-        <div class="arrow" onclick="changeSlide(-1)">&#8592;</div>
-        <div class="arrow" onclick="changeSlide(1)">&#8594;</div>
+    </div> -->
+    <!-- <div class="arrows">
+        <div class="arrow1" onclick="changeSlide(-1)">&#8592;</div>
+        <div class="arrow1" onclick="changeSlide(1)">&#8594;</div>
     </div>
 
-    <div class="dots" id="dots"></div>
+    <div class="dots" id="dots"></div> -->
+    <div class="arrow">
+        <div class="left_arrow">
+          <a href="3-About_me.html"><i class="bx bxs-chevron-left"></i></a>
+        </div>
+        <div class="show_option">
+          <div class="nav_img">
+            <i class="bx bx-menu-alt-left"></i>
+            <div class="menu">
+              <div class="home_logo">
+                <a href="index.html">
+                  <i class="bx bxs-home">
+                    <span class="tooltiptext"> HOME</span>
+                  </i>
+                </a>
+              </div>
+              <div class="About_me_logo">
+                <a href="3-About_me.html">
+                  <i class="bx bxs-user">
+                    <span class="tooltiptext"> ABOUT ME</span>
+                  </i>
+                </a>
+              </div>
+              <div class="service_logo">
+                <a href="4-service.html">
+                  <i class="bx bxs-cog">
+                    <span class="tooltiptext">MY SERVICE </span>
+                  </i>
+                </a>
+              </div>
+              <div class="projects_logo">
+                <a href="5-portfolio.html">
+                  <i class="bx bxs-briefcase">
+                    <span class="tooltiptext"> PORTFOLIO</span>
+                  </i>
+                </a>
+              </div>
+              <div class="testimonials_logo">
+                <a href="6-testimonials.html">
+                  <i class="bx bx-podcast">
+                    <span class="tooltiptext"> TESTIMONIALS </span>
+                  </i>
+                </a>
+              </div>
+              <div class="blog_logo">
+                <a href="7-blog.html">
+                  <i class="bx bxl-blogger">
+                    <span class="tooltiptext"> BLOGS & NEWS </span>
+                  </i>
+                </a>
+              </div>
+
+              <div class="Contactme_logo">
+                <a href="8-contact.html"><i class="bx bx-support">
+                    <span class="tooltiptext">CONTACT </span>
+                  </i>
+                </a>
+              </div>
+            </div>
+            <!-- </i> -->
+          </div>
+        </div>
+        <div class="right_arrow">
+          <a href="5-portfolio.html"><i class="bx bxs-chevron-right"></i></a>
+        </div>
+      </div>
 
     <script>
-        const slider = document.getElementById('slider');
-        const dotContainer = document.getElementById('dots');
-        const totalSlides = slider.children.length;
-        let currentSlide = 0;
+        // Place this script at the end of your <body> or in a <script> tag
 
-        // Create dots
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('span');
-            dot.classList.add('dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => setSlide(i));
-            dotContainer.appendChild(dot);
-        }
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.getElementById('slider');
+  const dotContainer = document.getElementById('dots');
+  const testimonials = slider.querySelectorAll('.testimonial');
+  const totalSlides = testimonials.length;
+  let currentSlide = 0;
 
-        function setSlide(index) {
-            if (index < 0 || index >= totalSlides) return;
-            slider.style.transform = `translateX(-${index * 100}%)`;
-            document.querySelectorAll('.dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-            currentSlide = index;
-        }
+  // Create dots
+  dotContainer.innerHTML = '';
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => setSlide(i));
+    dotContainer.appendChild(dot);
+  }
 
-        function changeSlide(direction) {
-            let newIndex = currentSlide + direction;
-            if (newIndex < 0) newIndex = totalSlides - 1;
-            else if (newIndex >= totalSlides) newIndex = 0;
-            setSlide(newIndex);
-        }
+  function setSlide(index) {
+    if (index < 0 || index >= totalSlides) return;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dotContainer.querySelectorAll('.dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+    currentSlide = index;
+  }
+
+  function changeSlide(direction) {
+    let newIndex = currentSlide + direction;
+    if (newIndex < 0) newIndex = totalSlides - 1;
+    else if (newIndex >= totalSlides) newIndex = 0;
+    setSlide(newIndex);
+  }
+
+  // Attach arrow click handlers
+  document.querySelectorAll('.arrow1')[0].onclick = () => changeSlide(-1);
+  document.querySelectorAll('.arrow1')[1].onclick = () => changeSlide(1);
+
+  // Optional: swipe support for mobile
+  let startX = null;
+  slider.addEventListener('touchstart', function (e) {
+    startX = e.touches[0].clientX;
+  });
+  slider.addEventListener('touchend', function (e) {
+    if (startX === null) return;
+    let endX = e.changedTouches[0].clientX;
+    if (endX - startX > 50) changeSlide(-1);
+    else if (startX - endX > 50) changeSlide(1);
+    startX = null;
+  });
+
+  // Initialize first slide
+  setSlide(0);
+});
     </script>
 </body>
 

@@ -1,396 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>What I Do</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      /* Global Styles */
-      body {
-        font-family: Arial, sans-serif;
-        background: radial-gradient(
-          circle,
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What I Do</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    /* Global Styles */
+
+    body {
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle,
           rgba(238, 174, 202, 1) 0%,
-          rgba(148, 233, 229, 1) 57%
-        );
-        color: white;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        margin-left: 90px;
-        margin-right: 90px;
-      }
-      .file_name {
-        margin-bottom: -25px;
-        text-transform: uppercase;
-        color: #f9f2f2;
-        color: red;
-      }
-      /* Section Styling */
-      .features {
+          rgba(148, 233, 229, 1) 57%);
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      margin-left: 90px;
+      margin-right: 90px;
+      /* overflow: hidden; */
+    }
+
+    .file_name {
+      margin-bottom: -25px;
+      text-transform: uppercase;
+      color: #f9f2f2;
+      color: red;
+    }
+
+    /* Section Styling */
+    .features {
+      text-align: center;
+      /* padding: 30px 20px; */
+      color: var(--text-color);
+      /* margin: 3% 0% 2% 6%; */
+      padding: 0;
+      margin-left: 13vw;
+      /* width: 100%; */
+      /* display: flex; */
+      /* flex-direction: column; */
+      /* align-items: center; */
+      /* border-radius: 5vh; */
+      /* border: 2px solid #b1f7f9; */
+      /* box-shadow: #309da0 0px 0px 20px 2px; */
+      /* overflow: auto; */
+    }
+
+
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      color: #f9f2f2;
+    }
+
+    /* Grid Layout */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
+      gap: 20px;
+      max-width: 70vw;
+      max-height: 390px;
+      margin: auto;
+      /* display:inline-block; */
+    }
+
+    /* Cards */
+    .toggle_card {
+      display: none;
+    }
+
+    .card {
+      background: linear-gradient(to top,
+          rgba(238, 174, 202, 1) 0%,
+          rgba(148, 233, 229, 1) 57%);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      z-index: 1;
+
+    }
+
+    .card {
+      width: 250px;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .toggle-card:checked+.card {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1.1);
+      width: 80%;
+      max-width: 500px;
+      z-index: 999;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Show extra info */
+    .toggle-card:checked+.card .card-details {
+      opacity: 1;
+      max-height: 200px;
+      margin-top: 15px;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(255, 0, 100, 0.4);
+    }
+
+    /* Icons */
+    .icon {
+      font-size: 32px;
+      color: #ff0066;
+      margin-bottom: 10px;
+    }
+
+    /* Know More Link */
+    .learn-more {
+      display: inline-block;
+      margin-top: 10px;
+      margin-left: -200px;
+      color: #ff0066;
+      font-size: 26px;
+      text-decoration: none;
+      transition: color 0.6s;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .learn-more {
+      color: #33ff66;
+      transform: translateX(100px);
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      position: relative;
+    }
+
+
+    .card .learn-more {
+      font-size: 20px;
+      text-decoration: none;
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    .blur {
+      filter: blur(5px);
+      pointer-events: none;
+    }
+
+    .expanded-card {
+      text-align: center;
+      position: fixed;
+      top: 50%;
+      left: 46%;
+      width: 85%;
+      max-width: 600px;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      background: white;
+      background: linear-gradient(to top,
+          rgba(238, 174, 202, 1) 0%,
+          rgba(148, 233, 229, 1) 57%);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .expanded-card .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .arrow {
+      display: flex;
+      width: 10vw;
+      height: 6.4vh;
+      /* border: 3px solid #b1f7f9; */
+      box-shadow: 0px 0px 18px 1px #e8feff;
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      position: relative;
+      left: 57vw;
+      top: -0vh;
+      font-size: 50px;
+      background: -webkit-linear-gradient(#12e2d8, #f772b0);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      z-index: 1;
+    }
+
+    .left_arrow,
+    .show_option,
+    .right_arrow {
+      margin-top: -2px;
+    }
+
+    .nav_img {
+      display: inline-block;
+      pointer-events: auto;
+      height: 100px;
+    }
+
+    .menu {
+      visibility: hidden;
+      display: flex;
+      font-size: 30px;
+      flex-direction: column;
+      align-items: center;
+      font-family: poppins;
+      border-radius: 30px 30px 30px 0px;
+      box-shadow: 0px 0px 10px 2px #5ed1c9;
+      filter: none;
+      position: relative;
+      top: -13.5em;
+      left: 0.4em;
+      padding-left: 0.5vw;
+      /* height:50rem; */
+      overflow: hidden;
+      width: 2.8rem;
+      background: transparent;
+      text-shadow: #f8f4f6 0px 0px 0px;
+      padding-right: 8px;
+      transition: height 2s ease;
+      cursor: pointer;
+      pointer-events: none;
+    }
+
+    .nav_img:hover .menu {
+      visibility: visible;
+      height: 22rem;
+      pointer-events: auto;
+    }
+
+    .nav_container {
+      /* visibility: hidden; */
+      margin-left: -5vw;
+      margin-top: 38vh;
+      height: 50vh;
+      width: 4vw;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      border: 3px solid hsla(0, 0%, 100%, 0.18);
+      background: linear-gradient(108.98deg,
+          hsla(0, 0%, 100%, 0.208),
+          hsla(0, 0%, 100%, 0.052));
+      -webkit-backdrop-filter: blur(25px);
+      backdrop-filter: blur(25px);
+      box-shadow: 0px 0px 20px 2px #309da0;
+      border-radius: 30px;
+      font-size: 2vw;
+      pointer-events: none;
+    }
+
+    .home_logo,
+    .About_me_logo,
+    .projects_logo,
+    .blog_logo,
+    .podcast_logo,
+    .Contactme_logo,
+    .service_logo {
+      position: relative;
+      display: inline-block;
+      padding-top: 2vh;
+    }
+
+    .tooltiptext {
+      font-family: poppins;
+      font-size: 15px;
+      visibility: hidden;
+      max-width: 200px;
+      background-color: rgb(224, 227, 224);
+      box-shadow: 0px 0px 20px 0px rgb(255, 254, 254);
+      background: blur;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 3px 3px;
+      position: absolute;
+      z-index: 1;
+      right: 150%;
+      /* border :2px solid rgb(188, 254, 248); */
+    }
+
+    .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 28%;
+      left: 165%;
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent rgb(0, 141, 129) transparent transparent;
+    }
+
+    .tooltiptext::before {
+      content: "";
+      position: absolute;
+      top: 28%;
+      left: 105%;
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent transparent transparent rgb(0, 141, 129);
+    }
+
+    .home_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .About_me_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .service_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .projects_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .blog_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .podcast_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .Contactme_logo:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
         text-align: center;
-        /* padding: 30px 20px; */
-        color: var(--text-color);
-        /* margin: 3% 0% 2% 6%; */
-        padding: 0;
-        width: 100%;
-        /* display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-radius: 5vh;
-        border: 2px solid #b1f7f9;
-        box-shadow: #309da0 0px 0px 20px 2px;
-        overflow: auto;
-      } */
+        margin: 0;
+      }
+
+      .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        max-width: 80vw;
+        max-height: 390px;
+        margin-left: 5vh;
       }
 
       .section-title {
-        text-align: center;
-        font-size: 36px;
-        font-weight: bold;
-        margin-bottom: 40px;
-        text-transform: uppercase;
-        color: #f9f2f2;
-      }
-
-      /* Grid Layout */
-      .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
-        gap: 20px;
-        max-width: 70vw;
-        max-height: 390px;
-        margin: auto;
-        /* display:inline-block; */
-      }
-
-      /* Cards */
-      .toggle_card {
-        display: none;
-      }
-
-      .card {
-        background: linear-gradient(
-          to top,
-          rgba(238, 174, 202, 1) 0%,
-          rgba(148, 233, 229, 1) 57%
-        );
-        padding: 10px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.4s ease;
-        z-index: 1;
-      }
-
-      .toggle-card:checked + .card {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1.1);
-        width: 80%;
-        max-width: 500px;
-        z-index: 999;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-      }
-
-      /* Show extra info */
-      .toggle-card:checked + .card .card-details {
-        opacity: 1;
-        max-height: 200px;
-        margin-top: 15px;
-      }
-
-      .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(255, 0, 100, 0.4);
-      }
-
-      /* Icons */
-      .icon {
-        font-size: 32px;
-        color: #ff0066;
-        margin-bottom: 10px;
-      }
-
-      /* Know More Link */
-      .learn-more {
-        display: inline-block;
-        margin-top: 10px;
-        margin-left: -200px;
-        color: #ff0066;
-        font-size: 26px;
-        text-decoration: none;
-        transition: color 0.6s;
-        transition: transform 0.3s ease;
-      }
-
-      .card:hover .learn-more {
-        color: #33ff66;
-        transform: translateX(100px);
-      }
-
-      .card-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        position: relative;
-      }
-
-      .card {
-        width: 250px;
-        padding: 20px;
-        border-radius: 10px;
-        background: white;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        cursor: pointer;
-        position: relative;
-        z-index: 1;
-      }
-
-      .card .learn-more {
-        font-size: 20px;
-        text-decoration: none;
-        margin-top: 10px;
-        display: inline-block;
-      }
-
-      .blur {
-        filter: blur(5px);
-        pointer-events: none;
-      }
-
-      .expanded-card {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        width: 90%;
-        max-width: 600px;
-        transform: translate(-50%, -50%);
-        z-index: 999;
-        background: white;
-        padding: 30px;
-        border-radius: 20px;
-        box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-        transition: all 0.3s ease;
-      }
-
-      .expanded-card .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        font-size: 20px;
-        cursor: pointer;
-        background: none;
-        border: none;
+        font-size: 28px;
+        /* padding-right: 5em;
+          margin: 0.5em; */
+        line-height: 2;
+        margin-left: 13vw;
       }
 
       .arrow {
-        display: flex;
-        width: 10vw;
-        height: 6.4vh;
-        /* border: 3px solid #b1f7f9; */
-        box-shadow: 0px 0px 18px 1px #e8feff;
-        backdrop-filter: blur(20px);
-        border-radius: 25px;
+        height: 3vh;
+        width: 37vw;
+        left: 50vw;
+        top: 0vh;
         position: relative;
-        left: 65vw;
-        top: -5vh;
-        font-size: 50px;
-        background: -webkit-linear-gradient(#12e2d8, #f772b0);
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        z-index: 1;
       }
 
-      .left_arrow,
-      .show_option,
-      .right_arrow {
-        margin-top: -2px;
+      .features {
+        margin-left: 2vw;
       }
 
-      .nav_img {
-        display: inline-block;
-        pointer-events: auto;
-        height: 100px;
+      .expanded-card {
+        padding: 2vw;
+        margin: 5vw;
       }
 
-      .menu {
-        visibility: hidden;
-        display: flex;
-        font-size: 30px;
-        flex-direction: column;
-        align-items: center;
-        font-family: poppins;
-        border-radius: 30px 30px 30px 0px;
-        box-shadow: 0px 0px 10px 2px #5ed1c9;
-        filter: none;
-        position: relative;
-        top: -13.5em;
-        left: 0.4em;
-        padding-left: 0.5vw;
-        /* height:50rem; */
-        overflow: hidden;
-        width: 2.8rem;
-        background: transparent;
-        text-shadow: #f8f4f6 0px 0px 0px;
-        padding-right: 8px;
-        transition: height 2s ease;
-        cursor: pointer;
-        pointer-events: none;
-      }
+    }
+  </style>
+</head>
 
-      .nav_img:hover .menu {
-        visibility: visible;
-        height: 22rem;
-        pointer-events: auto;
-      }
+<body>
+  <script>
+    function expandCard(card) {
+      // Blur all cards
+      document.querySelectorAll(".card").forEach((c) => {
+        c.classList.add("blur");
+      });
 
-      .nav_container {
-        /* visibility: hidden; */
-        margin-left: -5vw;
-        margin-top: 38vh;
-        height: 50vh;
-        width: 4vw;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        border: 3px solid hsla(0, 0%, 100%, 0.18);
-        background: linear-gradient(
-          108.98deg,
-          hsla(0, 0%, 100%, 0.208),
-          hsla(0, 0%, 100%, 0.052)
-        );
-        -webkit-backdrop-filter: blur(25px);
-        backdrop-filter: blur(25px);
-        box-shadow: 0px 0px 20px 2px #309da0;
-        border-radius: 30px;
-        font-size: 2vw;
-        pointer-events: none;
-      }
+      // Create expanded card element
+      const expanded = document.createElement("div");
+      expanded.classList.add("expanded-card");
 
-      .home_logo,
-      .About_me_logo,
-      .projects_logo,
-      .blog_logo,
-      .podcast_logo,
-      .Contactme_logo,
-      .service_logo {
-        position: relative;
-        display: inline-block;
-        padding-top: 2vh;
-      }
-
-      .tooltiptext {
-        font-family: poppins;
-        font-size: 15px;
-        visibility: hidden;
-        max-width: 200px;
-        background-color: rgb(224, 227, 224);
-        box-shadow: 0px 0px 20px 0px rgb(255, 254, 254);
-        background: blur;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 3px 3px;
-        position: absolute;
-        z-index: 1;
-        right: 150%;
-        /* border :2px solid rgb(188, 254, 248); */
-      }
-
-      .tooltiptext::after {
-        content: "";
-        position: absolute;
-        top: 28%;
-        left: 165%;
-        border-width: 6px;
-        border-style: solid;
-        border-color: transparent rgb(0, 141, 129) transparent transparent;
-      }
-      .tooltiptext::before {
-        content: "";
-        position: absolute;
-        top: 28%;
-        left: 105%;
-        border-width: 6px;
-        border-style: solid;
-        border-color: transparent transparent transparent rgb(0, 141, 129);
-      }
-
-      .home_logo:hover .tooltiptext {
-        visibility: visible;
-      }
-
-      .About_me_logo:hover .tooltiptext {
-        visibility: visible;
-      }
-
-      .service_logo:hover .tooltiptext {
-        visibility: visible;
-      }
-
-      .projects_logo:hover .tooltiptext {
-        visibility: visible;
-      }
-
-      .blog_logo:hover .tooltiptext {
-        visibility: visible;
-      }
-
-      .podcast_logo:hover .tooltiptext {
-        visibility: visible;
-      }
-
-      .Contactme_logo:hover .tooltiptext {
-        visibility: visible;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .grid-container {
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-
-        .section-title {
-          font-size: 28px;
-          /* padding-right: 5em;
-          margin: 0.5em; */
-        }
-        .arrow {
-          height: 3vh;
-          width: 37vw;
-          left: 36vw;
-          top: 130vh;
-          position: relative;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <script>
-      function expandCard(card) {
-        // Blur all cards
-        document.querySelectorAll(".card").forEach((c) => {
-          c.classList.add("blur");
-        });
-
-        // Create expanded card element
-        const expanded = document.createElement("div");
-        expanded.classList.add("expanded-card");
-
-        const content = `
+      const content = `
       <button class="close-btn" onclick="closeCard(this)">✖</button>
       <div class="icon">${card.querySelector(".icon").innerHTML}</div>
       <h3>${card.querySelector("h3").innerText}</h3>
@@ -399,26 +420,26 @@
         ${card.getAttribute("data-content")}
       </div>
     `;
-        expanded.innerHTML = content;
+      expanded.innerHTML = content;
 
-        document.body.appendChild(expanded);
-      }
+      document.body.appendChild(expanded);
+    }
 
-      function closeCard(btn) {
-        const expanded = btn.parentElement;
-        expanded.remove();
-        document.querySelectorAll(".card").forEach((c) => {
-          c.classList.remove("blur");
-        });
-      }
-    </script>
+    function closeCard(btn) {
+      const expanded = btn.parentElement;
+      expanded.remove();
+      document.querySelectorAll(".card").forEach((c) => {
+        c.classList.remove("blur");
+      });
+    }
+  </script>
 
-    <section class="features">
-      <p class="file_name">SERVICES</p>
-      <h2 class="section-title">How I Can Help </h2>
-      <div class="grid-container">
-        <!-- <input type="checkbox" class="toggle_card"> -->
-        <!-- <div class="card">
+  <section class="features">
+    <p class="file_name">SERVICES</p>
+    <h2 class="section-title">How I Can Help </h2>
+    <div class="grid-container">
+      <!-- <input type="checkbox" class="toggle_card"> -->
+      <!-- <div class="card">
           <div class="icon">☰</div>
           <h3>Business Strategy</h3>
           <p>
@@ -429,9 +450,9 @@
           <!-- <div class="card_details">
             hello world
           </div> -->
-        <!-- </div> -->
+      <!-- </div> -->
 
-        <!-- <div class="card">
+      <!-- <div class="card">
           <div class="icon">📖</div>
           <h3>App Development</h3>
           <p>
@@ -451,7 +472,7 @@
           <a href="#" class="learn-more"> →</a>
         </div> -->
 
-        <!-- <div class="card">
+      <!-- <div class="card">
           <div class="icon">💬</div>
           <h3>Mobile App</h3>
           <p>
@@ -471,67 +492,73 @@
           <a href="#" class="learn-more"> →</a>
         </div> -->
 
-        <div class="card" onclick="expandCard(this)" data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
-          <div class="icon">📖</div>
-          <h3>Web Development</h3>
-          <p class="summary">
-            It uses a dictionary of over 200 Latin words, combined with a
-            handful of model sentence.
-          </p>
-          <a href="#" class="learn-more"> →</a>
-        </div>
+      <div class="card" onclick="expandCard(this)"
+        data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
+        <div class="icon"> </div>
+        <h3>Web Development</h3>
+        <p class="summary">
+          It uses a dictionary of over 200 Latin words, combined with a
+          handful of model sentence.
+        </p>
+        <a href="#" class="learn-more"> →</a>
+      </div>
 
-        <div class="card" onclick="expandCard(this)" data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
-          <div class="icon">📖</div>
-          <h3>Mobile App Development</h3>
-          <p class="summary">
-            It uses a dictionary of over 200 Latin words, combined with a
-            handful of model sentence.
-          </p>
-          <a href="#" class="learn-more"> →</a>
-        </div>
+      <div class="card" onclick="expandCard(this)"
+        data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
+        <div class="icon">📖</div>
+        <h3>Mobile App Development</h3>
+        <p class="summary">
+          It uses a dictionary of over 200 Latin words, combined with a
+          handful of model sentence.
+        </p>
+        <a href="#" class="learn-more"> →</a>
+      </div>
 
-        <div class="card" onclick="expandCard(this)" data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
-          <div class="icon">📖</div>
-          <h3>UI/UX Design</h3>
-          <p class="summary">
-            It uses a dictionary of over 200 Latin words, combined with a
-            handful of model sentence.
-          </p>
-          <a href="#" class="learn-more"> →</a>
-        </div>
+      <div class="card" onclick="expandCard(this)"
+        data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
+        <div class="icon">📖</div>
+        <h3>UI/UX Design</h3>
+        <p class="summary">
+          It uses a dictionary of over 200 Latin words, combined with a
+          handful of model sentence.
+        </p>
+        <a href="#" class="learn-more"> →</a>
+      </div>
 
-        <div class="card" onclick="expandCard(this)" data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
-          <div class="icon">📖</div>
-          <h3>Full-Stack Development</h3>
-          <p class="summary">
-            It uses a dictionary of over 200 Latin words, combined with a
-            handful of model sentence.
-          </p>
-          <a href="#" class="learn-more"> →</a>
-        </div>
+      <div class="card" onclick="expandCard(this)"
+        data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
+        <div class="icon">📖</div>
+        <h3>Full-Stack Development</h3>
+        <p class="summary">
+          It uses a dictionary of over 200 Latin words, combined with a
+          handful of model sentence.
+        </p>
+        <a href="#" class="learn-more"> →</a>
+      </div>
 
-        <div class="card" background="'" onclick="expandCard(this)" data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
-          <div class="icon">📖</div>
-          <h3>App Development</h3>
-          <p class="summary">
-            It uses a dictionary of over 200 Latin words, combined with a
-            handful of model sentence.
-          </p>
-          <a href="#" class="learn-more"> →</a>
-        </div>
+      <div class="card" background="'" onclick="expandCard(this)"
+        data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
+        <div class="icon">📖</div>
+        <h3>App Development</h3>
+        <p class="summary">
+          It uses a dictionary of over 200 Latin words, combined with a
+          handful of model sentence.
+        </p>
+        <a href="#" class="learn-more"> →</a>
+      </div>
 
-        <div class="card" onclick="expandCard(this)" data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
-          <div class="icon">📖</div>
-          <h3>App Development</h3>
-          <p class="summary">
-            It uses a dictionary of over 200 Latin words, combined with a
-            handful of model sentence.
-          </p>
-          <a href="#" class="learn-more"> →</a>
-        </div>
+      <div class="card" onclick="expandCard(this)"
+        data-content="This service covers everything from UI/UX design to backend integration, tailored for scalable mobile and desktop apps.">
+        <div class="icon">📖</div>
+        <h3>App Development</h3>
+        <p class="summary">
+          It uses a dictionary of over 200 Latin words, combined with a
+          handful of model sentence.
+        </p>
+        <a href="#" class="learn-more"> →</a>
+      </div>
 
-        <!-- <div class="card">
+      <!-- <div class="card">
           <div class="icon">🌀</div>
           <h3>Personal Portfolio April</h3>
           <p>
@@ -594,8 +621,7 @@
               </div>
 
               <div class="Contactme_logo">
-                <a href="8-contact.html"
-                  ><i class="bx bx-support">
+                <a href="8-contact.html"><i class="bx bx-support">
                     <span class="tooltiptext">CONTACT </span>
                   </i>
                 </a>
@@ -608,9 +634,9 @@
           <a href="5-portfolio.html"><i class="bx bxs-chevron-right"></i></a>
         </div>
       </div>
-    </section>
+  </section>
 
-    <!-- <div class="nav_container">
+  <!-- <div class="nav_container">
     <div class="home_logo">
       <a href="2-home.html"> <i class="bx bxs-home">
           <span class="tooltiptext"> HOME</span>
@@ -642,5 +668,6 @@
         </i> </a>
     </div>
   </div> -->
-  </body>
+</body>
+
 </html>

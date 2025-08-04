@@ -1472,44 +1472,56 @@ drawStars();
     const toggle = document.getElementById("toggle");
     const body = document.body;
 
-    // Check and apply saved theme
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
+    // Only set theme if not already saved in localStorage
+  if (!localStorage.getItem("theme")) {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      body.classList.remove("light-mode");
+      toggle.checked = false;
+      localStorage.setItem("theme", "dark");
+    } else {
       body.classList.add("light-mode");
-      
+      toggle.checked = true;
+      localStorage.setItem("theme", "light");
+    }
+  } else {
+    // Existing logic for saved theme
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      body.classList.add("light-mode");
       toggle.checked = true;
     } else {
       body.classList.remove("light-mode");
       toggle.checked = false;
     }
-
-    // Listen for toggle change
-    toggle.addEventListener("change", () => {
-      if (toggle.checked) {
-        body.classList.add("light-mode");
-        localStorage.setItem("theme", "light");
-      } else {
-        body.classList.remove("light-mode");
-        localStorage.setItem("theme", "dark");
-      }
-    });
-  });
-
-function updateThemeColor() {
-  const metaThemeColor = document.getElementById('theme-color-meta');
-  if (document.body.classList.contains('light-mode')) {
-    metaThemeColor.setAttribute('content', '#b3f0ff'); // Light theme color
-  } else {
-    metaThemeColor.setAttribute('content', '#181818'); // Dark theme color
   }
-}
 
-// Call on load and on theme change
-window.addEventListener("DOMContentLoaded", () => {
-  // ...your existing theme toggle code...
-  updateThemeColor();
-  document.getElementById('toggle').addEventListener('change', updateThemeColor);
+  // Listen for toggle change
+  toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+      body.classList.add("light-mode");
+      localStorage.setItem("theme", "light");
+    } else {
+      body.classList.remove("light-mode");
+      localStorage.setItem("theme", "dark");
+    }
+  });
 });
+
+// function updateThemeColor() {
+//   const metaThemeColor = document.getElementById('theme-color-meta');
+//   if (document.body.classList.contains('light-mode')) {
+//     metaThemeColor.setAttribute('content', '#b3f0ff'); // Light theme color
+//   } else {
+//     metaThemeColor.setAttribute('content', '#181818'); // Dark theme color
+//   }
+// }
+
+// // Call on load and on theme change
+// window.addEventListener("DOMContentLoaded", () => {
+//   // ...your existing theme toggle code...
+//   updateThemeColor();
+//   document.getElementById('toggle').addEventListener('change', updateThemeColor);
+// });
 
 
 </script>
